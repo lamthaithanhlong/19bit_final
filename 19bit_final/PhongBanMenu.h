@@ -6,4 +6,6 @@
 #include<conio.h>
 
 void PhongBanMenu();
+void PhongBanMenuView();
+
 #endif

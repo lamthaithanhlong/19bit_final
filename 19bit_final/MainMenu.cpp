@@ -1,15 +1,26 @@
 //_CRT_SECURE_NO_WARNINGS
 #include"MainMenu.h"
 #include"PhongBanMenu.h"
+#include"extend.h"
+void MainMenuView() 
+{
+	printf("\n\t1.Phong Ban");
+	printf("\n\t2.Nhan Vien");
+	printf("\n\t3.Tim Kiem");
+	printf("\n\t4.Cap Nhat Du Lieu Bang Tay");
+	printf("\n\t5.Thoat va luu Chuong Trinh");
+}
+
 void MainMenu() 
 {
 	int n;
-	printf("Lua chon chuc nang: ");
+	MainMenuView();
+	printf("\nLua chon chuc nang: ");
 	scanf("%d", &n);
 	switch (n)
 	{
-	case 1: PhongBanMenu();
-	case 2: printf("Lua chon chuc nang nhan vien ");
+	case 1: clrscr(),PhongBanMenu();
+	case 2: printf("\nLua chon chuc nang nhan vien ");
 	default: 
 		break;
 	}

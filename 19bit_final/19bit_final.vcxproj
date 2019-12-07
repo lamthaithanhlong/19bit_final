@@ -124,11 +124,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="extend.h" />
     <ClInclude Include="PhongBanMenu.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="PhongBan.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Extend.cpp" />
     <ClCompile Include="PhongBanMenu.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenu.cpp" />

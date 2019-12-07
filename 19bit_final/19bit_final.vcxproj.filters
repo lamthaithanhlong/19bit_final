@@ -13,30 +13,45 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Extend Files">
+      <UniqueIdentifier>{1ceae3ff-cd8a-41d4-852b-f1f1dbc6f896}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Phong Ban Files">
+      <UniqueIdentifier>{f9988be9-137f-486c-9cf5-6fc00eb94d4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Menu Files">
+      <UniqueIdentifier>{1165eecc-84ea-4d04-9ee2-fd1082585343}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MainMenu.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="extend.h">
+      <Filter>Source Files\Extend Files</Filter>
     </ClInclude>
     <ClInclude Include="PhongBan.h">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Phong Ban Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenu.h">
+      <Filter>Source Files\Menu Files</Filter>
     </ClInclude>
     <ClInclude Include="PhongBanMenu.h">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Menu Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MainMenu.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Extend.cpp">
+      <Filter>Source Files\Extend Files</Filter>
     </ClCompile>
     <ClCompile Include="PhongBan.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Phong Ban Files</Filter>
     </ClCompile>
     <ClCompile Include="PhongBanMenu.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Menu Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenu.cpp">
+      <Filter>Source Files\Menu Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
