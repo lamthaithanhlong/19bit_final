@@ -7,22 +7,25 @@
 
 void PhongBanMenuView()
 {
-	printf("\t1.Xuat Phong Ban");
-	printf("\n\t2.Nhap Phong Ban");
-	printf("\n\t3.Tro lai Menu chinh");
+	printf("\n\t1.Them phong ban");
+	printf("\n\t2.Thay doi phong ban");
+	printf("\n\t3.Xoa phong ban");
+	printf("\n\t4.Xem danh sach phong ban");
+	printf("\n\t5.Tro lai Menu chinh");
 }
 
 void PhongBanMenu() 
 {
 	int n;
+	printf("\nLua chon mot trong cac chuc nang sau day cua phong ban: \n");
 	PhongBanMenuView();
-	printf("\nLua chon mot trong cac chuc nang sau day cua phong ban: ");
+	printf("\n\nNhap so tuong ung tren menu: ");
 	scanf("%d", &n);
 	switch (n)
 	{
 	case 1: XuatPhongBan();
 		break;
-	case 3: clrscr(), MainMenu();
+	case 5: clrscr(), head_disp(), MainMenu();
 		break;
 	default:
 		break;

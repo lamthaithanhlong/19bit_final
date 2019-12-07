@@ -22,6 +22,9 @@
     <Filter Include="Source Files\Menu Files">
       <UniqueIdentifier>{1165eecc-84ea-4d04-9ee2-fd1082585343}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Nhan Vien Files">
+      <UniqueIdentifier>{38dc8db4-4d45-45bb-9c73-8bffa9c48d15}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="extend.h">
@@ -34,6 +37,9 @@
       <Filter>Source Files\Menu Files</Filter>
     </ClInclude>
     <ClInclude Include="PhongBanMenu.h">
+      <Filter>Source Files\Menu Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NhanVienMenu.h">
       <Filter>Source Files\Menu Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -51,6 +57,9 @@
       <Filter>Source Files\Menu Files</Filter>
     </ClCompile>
     <ClCompile Include="MainMenu.cpp">
+      <Filter>Source Files\Menu Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NhanVienMenu.cpp">
       <Filter>Source Files\Menu Files</Filter>
     </ClCompile>
   </ItemGroup>

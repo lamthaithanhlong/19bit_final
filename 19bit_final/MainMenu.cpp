@@ -1,6 +1,7 @@
 //_CRT_SECURE_NO_WARNINGS
 #include"MainMenu.h"
 #include"PhongBanMenu.h"
+#include"NhanVienMenu.h"
 #include"extend.h"
 void MainMenuView() 
 {
@@ -15,12 +16,16 @@ void MainMenu()
 {
 	int n;
 	MainMenuView();
+	printf("\n");
 	printf("\nLua chon chuc nang: ");
 	scanf("%d", &n);
 	switch (n)
 	{
 	case 1: clrscr(),PhongBanMenu();
-	case 2: printf("\nLua chon chuc nang nhan vien ");
+		break;
+	case 2: clrscr(),NhanVienMenu();
+		break;
+	case 5: exit(10);
 	default: 
 		break;
 	}

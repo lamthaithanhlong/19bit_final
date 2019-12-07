@@ -7,6 +7,8 @@
 #include <stdlib.h>
 
 void clrscr();
+void head_disp();
+void footer_disp();
 
 #endif // !__extend__H_
 
