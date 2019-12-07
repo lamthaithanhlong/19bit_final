@@ -125,6 +125,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="extend.h" />
+    <ClInclude Include="fort.h" />
     <ClInclude Include="NhanVienMenu.h" />
     <ClInclude Include="PhongBanMenu.h" />
     <ClInclude Include="MainMenu.h" />
@@ -132,11 +133,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Extend.cpp" />
+    <ClCompile Include="fort.c" />
     <ClCompile Include="NhanVienMenu.cpp" />
     <ClCompile Include="PhongBanMenu.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="PhongBan.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="file1.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
