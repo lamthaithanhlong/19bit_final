@@ -62,11 +62,11 @@
     <ClCompile Include="NhanVienMenu.cpp">
       <Filter>Source Files\Menu Files</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files\Extend Files</Filter>
-    </ClCompile>
     <ClCompile Include="fort.c">
       <Filter>Source Files\Extend Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
