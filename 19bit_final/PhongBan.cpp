@@ -3,27 +3,45 @@
 #include <stdlib.h>
 #include"fort.h"
 #define DATA_SIZE 1000
+#define PHONG_BAN_MAX_SIZE 10
+
+struct PhongBan
+{
+	int mspb;
+	char ten[60];
+};
+typedef PhongBan phongban;
+struct DanhSach
+{
+	phongban a[PHONG_BAN_MAX_SIZE];
+	int n;
+};
+
+void ThongTinPhongBan(phongban &pb) {
+	printf("\nnhap vao msnv: ");
+	scanf("%d", &pb.mspb);
+	printf("\nnhap vao ho: ");
+	fflush(stdin);
+	rewind(stdin);
+	gets_s(pb.ten);
+}
 
 void ThemPhongBan() 
 {
 	FILE* fp;
 	char c;
-	int a, b, c1,d;
+	int a, b,k;
+	phongban pb;
+	//printf("\n\tvi tri them: ");
+	//scanf("%d", &k);
+	ThongTinPhongBan(pb);
 	printf("File Handling\n");
-	printf("Enter a:");
-	scanf("%d", &a);
-	printf("Enter b:");
-	scanf("%d", &b);
-	printf("Enter c:");
-	scanf("%d", &c1);
-	printf("Enter d:");
-	scanf("%d", &d);
 	fp = fopen("file1.txt", "w");
 	//while ((c = getchar()) != EOF) {
-		fprintf(fp, "\n%-15s %-15s %-15s %-15s", "|| string 1 ||", "|| string 2 ||", "|| string 3 ||", "|| string 4 ||");
-		fprintf(fp, "\n%-15s %-15s %-15s %-15s", "||==========||", "||==========||", "||==========||", "||==========||");
-		fprintf(fp, "\n|| %-50 %-20d %-15d %-15d %-20d ", a , b, c1, d);
-		fprintf(fp, "\n%-15s %-15s %-15s %-15s", "||==========||", "||==========||", "||==========||", "||==========||");
+		fprintf(fp, "\n%-15s %-15s", "|| string 1 ||", "|| string 2 ||");
+		fprintf(fp, "\n%-15s %-15s", "||==========||", "||==========||");
+		fprintf(fp, "\n%-15d %-25s", pb.mspb , pb.ten);
+		fprintf(fp, "\n%-15s %-15s", "||==========||", "||==========||");
 	//}
 	fclose(fp);
 	printf("Du lieu da nhap vao:\n");
