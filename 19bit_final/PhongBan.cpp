@@ -26,7 +26,7 @@ void ThemPhongBan()
 		fprintf(fp, "\n%-15s %-15s %-15s %-15s", "||==========||", "||==========||", "||==========||", "||==========||");
 	//}
 	fclose(fp);
-	printf("Data Entered:\n");
+	printf("Du lieu da nhap vao:\n");
 	fp = fopen("file1.txt", "r");
 	while ((c = getc(fp)) != EOF) {
 		printf("%c", c);
