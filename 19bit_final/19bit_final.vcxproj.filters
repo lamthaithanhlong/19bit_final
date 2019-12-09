@@ -42,11 +42,11 @@
     <ClInclude Include="NhanVienMenu.h">
       <Filter>Source Files\Menu Files</Filter>
     </ClInclude>
+    <ClInclude Include="fort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Extend.cpp">
       <Filter>Source Files\Extend Files</Filter>
     </ClCompile>
@@ -62,5 +62,14 @@
     <ClCompile Include="NhanVienMenu.cpp">
       <Filter>Source Files\Menu Files</Filter>
     </ClCompile>
+    <ClCompile Include="fort.c">
+      <Filter>Source Files\Extend Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="file1.txt" />
   </ItemGroup>
 </Project>

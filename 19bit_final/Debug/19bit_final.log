@@ -1,5 +1,4 @@
-﻿  MainMenu.cpp
-  PhongBanMenu.cpp
-  main.cpp
-  Generating Code...
+﻿  PhongBan.cpp
+C:\Users\ACER\source\repos\19bit_final\19bit_final\PhongBan.cpp(25,15): warning C4476: 'fprintf' : unknown type field character ' ' in format specifier
+C:\Users\ACER\source\repos\19bit_final\19bit_final\PhongBan.cpp(40,7): warning C4101: 'buffer': unreferenced local variable
   19bit_final.vcxproj -> C:\Users\ACER\source\repos\19bit_final\Debug\19bit_final.exe
