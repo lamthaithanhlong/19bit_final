@@ -16,6 +16,7 @@ struct DanhSach
 	phongban a[PHONG_BAN_MAX_SIZE];
 	int n;
 };
+typedef DanhSach danhsach;
 
 void ThongTinPhongBan(phongban &pb) {
 	printf("\nnhap vao msnv: ");
@@ -32,17 +33,20 @@ void ThemPhongBan()
 	char c;
 	int a, b,k;
 	phongban pb;
-	//printf("\n\tvi tri them: ");
-	//scanf("%d", &k);
-	ThongTinPhongBan(pb);
+	danhsach ds;
+	printf("\nnhap so luong nhan vien: ");
+	scanf("%d", &ds.n);
+	printf("\n\t\t\tnhap thong tin nhan vien");
 	printf("File Handling\n");
 	fp = fopen("file1.txt", "w");
-	//while ((c = getchar()) != EOF) {
+	for (int i = 0; i < ds.n; i++)
+	{
+		ThongTinPhongBan(pb);
 		fprintf(fp, "\n%-15s %-15s", "|| string 1 ||", "|| string 2 ||");
 		fprintf(fp, "\n%-15s %-15s", "||==========||", "||==========||");
-		fprintf(fp, "\n%-15d %-25s", pb.mspb , pb.ten);
+		fprintf(fp, "\n%-15d %-25s", pb.mspb, pb.ten);
 		fprintf(fp, "\n%-15s %-15s", "||==========||", "||==========||");
-	//}
+	}
 	fclose(fp);
 	printf("Du lieu da nhap vao:\n");
 	fp = fopen("file1.txt", "r");
