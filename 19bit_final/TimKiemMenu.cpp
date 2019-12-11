@@ -1,5 +1,7 @@
 #include<stdio.h>
 #include<conio.h>
+#include"MainMenu.h"
+#include"extend.h"
 #include"TimKiemMenu.h"
 
 void TimKiemMenuView()
@@ -24,6 +26,7 @@ void TimKiemMenu()
 		break;
 	case 2:;
 		break;
+	case 6:  clrscr(), head_disp(), MainMenu();
 	default:
 		break;
 	}
