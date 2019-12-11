@@ -1,6 +1,6 @@
 ﻿  PhongBan.cpp
-C:\Users\ACER\source\repos\19bit_final\19bit_final\PhongBan.cpp(33,6): warning C4101: 'a': unreferenced local variable
-C:\Users\ACER\source\repos\19bit_final\19bit_final\PhongBan.cpp(33,11): warning C4101: 'k': unreferenced local variable
-C:\Users\ACER\source\repos\19bit_final\19bit_final\PhongBan.cpp(33,9): warning C4101: 'b': unreferenced local variable
-C:\Users\ACER\source\repos\19bit_final\19bit_final\PhongBan.cpp(58,7): warning C4101: 'buffer': unreferenced local variable
+C:\Users\ACER\source\repos\19bit_final\19bit_final\PhongBan.cpp(35,6): warning C4101: 'a': unreferenced local variable
+C:\Users\ACER\source\repos\19bit_final\19bit_final\PhongBan.cpp(35,11): warning C4101: 'k': unreferenced local variable
+C:\Users\ACER\source\repos\19bit_final\19bit_final\PhongBan.cpp(35,9): warning C4101: 'b': unreferenced local variable
+C:\Users\ACER\source\repos\19bit_final\19bit_final\PhongBan.cpp(67,7): warning C4101: 'buffer': unreferenced local variable
   19bit_final.vcxproj -> C:\Users\ACER\source\repos\19bit_final\Debug\19bit_final.exe
