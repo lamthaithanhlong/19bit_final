@@ -130,6 +130,7 @@
     <ClInclude Include="PhongBanMenu.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="PhongBan.h" />
+    <ClInclude Include="TimKiemMenu.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Extend.cpp" />
@@ -139,6 +140,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="PhongBan.cpp" />
+    <ClCompile Include="TimKiemMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="file1.txt" />

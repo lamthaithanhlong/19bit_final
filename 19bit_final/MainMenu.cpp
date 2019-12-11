@@ -2,6 +2,7 @@
 #include"MainMenu.h"
 #include"PhongBanMenu.h"
 #include"NhanVienMenu.h"
+#include"TimKiemMenu.h"
 #include"extend.h"
 void MainMenuView() 
 {
@@ -24,6 +25,8 @@ void MainMenu()
 	case 1: clrscr(),PhongBanMenu();
 		break;
 	case 2: clrscr(),NhanVienMenu();
+		break;
+	case 3: clrscr(),TimKiemMenu();
 		break;
 	case 5: exit(10);
 	default: 
