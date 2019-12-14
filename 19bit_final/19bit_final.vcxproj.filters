@@ -77,5 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="file1.txt" />
+    <Text Include="employeeRecord1.txt" />
+    <Text Include="employeeRecord.txt" />
   </ItemGroup>
 </Project>

@@ -143,6 +143,8 @@
     <ClCompile Include="TimKiemMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="employeeRecord.txt" />
+    <Text Include="employeeRecord1.txt" />
     <Text Include="file1.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
