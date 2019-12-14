@@ -23,11 +23,11 @@ void PhongBanMenu()
 	scanf("%d", &n);
 	switch (n)
 	{
-	case 1: ThemPhongBan();
+	case 1: emp_append();
 		break;
-	case 2:;
+	case 2:emp_delete();
 		break;
-	case 4: XuatPhongBan();
+	case 4: emp_displayAll();
 		break;
 	case 5: clrscr(), head_disp(), MainMenu();
 		break;
