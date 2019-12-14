@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<conio.h>
 #include"MainMenu.h"
+#include"PhongBan.h"
 #include"extend.h"
 #include"TimKiemMenu.h"
 
@@ -22,7 +23,7 @@ void TimKiemMenu()
 	scanf("%d", &n);
 	switch (n)
 	{
-	case 1:;
+	case 1:emp_search();
 		break;
 	case 2:;
 		break;
