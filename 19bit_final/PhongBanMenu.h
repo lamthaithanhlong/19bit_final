@@ -9,6 +9,7 @@ void PhongBanMenu();
 void emp_append();
 void emp_displayAll();
 void emp_delete();
+void emp_modify();
 void PhongBanMenuView();
 
 #endif

@@ -198,3 +198,67 @@ void emp_delete()
 		exit(0);
 	}
 }
+
+void emp_modify()
+{
+	FILE* data;
+	int id, found = 0;
+	data = fopen("employeeRecord.txt", "r+");
+	printf("\n\tEnter Employee ID to Edit Record:\t");
+	scanf("%d", &id);
+	while (fread(&personal, sizeof(personal), size, data) == size)
+	{
+		if (personal.emp_id == id)
+		{
+			found = 1;
+			printf("\n\tEXISTING RECORD IS......");
+			printf("\n\n\tEMPLOYEE ID:\t%d", personal.emp_id);
+			printf("\n\tEMPLOYEE NAME:\t%s", personal.name);
+			printf("\n\tEMPLOYEE POSITION:\t%s", personal.position);
+			printf("\n\tEMPLOYEE AGE:\t%d", personal.age);
+			printf("\n\tEMPLOYEE QUALIFICATIONS:\t%s", personal.qualification);
+			printf("\n\tEMPLOYEE CERTIFICATIONS:\t%s", personal.certifications);
+			printf("\n\tEMPLOYEE WORK EXPERIENCE:\t%d", personal.work_exp);
+			printf("\n\tEMLOYEE SALARY:\t%.2f", personal.salary);
+			printf("\n\tEMPLOYEE PHONE NUMBER:\t%ld", personal.phone);
+			printf("\n\tPROGRAMMING LANGUAGES KNOWN:\t%s", personal.prog_lang);
+			printf("\n\n************MODIFYING EMPLOYEE RECORD**************\n");
+			printf("\n\tEnter New Employee Name:\t");
+			scanf("%s", personal.name);
+			printf("\n\tEnter New Employee Position:\t");
+			scanf("%s", personal.position);
+			printf("\n\tEnter New Employee Age:\t");
+			scanf("%d", &personal.age);
+			printf("\n\tEnter New Employee Qualifications:\t");
+			scanf("%s", personal.qualification);
+			printf("\n\tEnter New Employee Certifications:\t");
+			scanf("%s", personal.certifications);
+			printf("\n\tEnter New Employee Work Experience:\t");
+			scanf("%d", &personal.work_exp);
+			printf("\n\tEnter new Employee Salary:\t");
+			scanf("%f", &personal.salary);
+			printf("\n\tEnter new Employee Phone Number:\t");
+			scanf("%ld", &personal.phone);
+			printf("\n\tEnter new Employee Programming languages Known:\t");
+			scanf("%s", personal.prog_lang);
+			fseek(data, -sizeof(personal), SEEK_CUR);
+			fwrite(&personal, sizeof(personal), size, data);
+			printf("\n\n\tEmployee Record Successfuly Written.");
+		}
+		break;
+	}
+	if (found == 0)
+	{
+		printf("\n\tRECORD NOT FOUND...");
+	}
+	fclose(data);
+	printf("\n\n\tPress 1 to Continue and 0 to EXIT");
+	printf("\n\n\tINPUT:\t");
+	int exit_status;
+	scanf("%d", &exit_status);
+	if (exit_status != 1)
+	{
+		printf("\n\n\tThank You for Using this Application.\n");
+		exit(0);
+	}
+}
