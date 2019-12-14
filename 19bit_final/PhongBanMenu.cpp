@@ -25,7 +25,9 @@ void PhongBanMenu()
 	{
 	case 1: emp_append();
 		break;
-	case 2:emp_delete();
+	case 2: clrscr(), emp_displayAll(), emp_modify();
+		break;
+	case 3:emp_delete();
 		break;
 	case 4: emp_displayAll();
 		break;
