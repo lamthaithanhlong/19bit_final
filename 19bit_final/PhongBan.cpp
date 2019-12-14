@@ -164,6 +164,66 @@ void emp_displayAll()
 
 }
 
+void emp_search()
+{
+	FILE* data;
+	data = fopen("employeeRecord.txt", "r");
+	int found = 0, search_choice, search_emp_id;
+	char search_name[100], ch = 'Y';
+	printf("\n\tWhat Do You Know about the Employee?");
+	printf("\n\tEmployee ID: Enter 1");
+	printf("\n\tEmployee Name: Enter 2");
+	printf("\n\tINPUT:\t");
+	scanf("%d", &search_choice);
+	switch (search_choice)
+	{
+	case 1:
+		printf("\n\tEnter Employee ID:\t");
+		scanf("%d", &search_emp_id);
+		break;
+	case 2:
+		printf("\n\tEnter Employee Name:\t");
+		scanf("%s", search_name);
+		break;
+	default:
+		ch = 'N';
+		printf("\n\tWRONG CHOICE.\n");
+	}
+	while (fread(&personal, sizeof(personal), size, data) == size)
+	{
+		if (personal.emp_id == search_emp_id || strcmp(personal.name, search_name) == 0)
+		{
+			found = 1;
+			printf("\n\t******************EMPLOYEE RECORD IS......");
+			printf("\n\n\tEMPLOYEE ID:\t%d", personal.emp_id);
+			printf("\n\tEMPLOYEE NAME:\t%s", personal.name);
+			printf("\n\tEMPLOYEE POSITION:\t%s", personal.position);
+			printf("\n\tEMPLOYEE AGE:\t%d", personal.age);
+			printf("\n\tEMPLOYEE QUALIFICATIONS:\t%s", personal.qualification);
+			printf("\n\tEMPLOYEE CERTIFICATIONS:\t%s", personal.certifications);
+			printf("\n\tEMPLOYEE WORK EXPERIENCE:\t%d", personal.work_exp);
+			printf("\n\tEMLOYEE SALARY:\t%.2f", personal.salary);
+			printf("\n\tEMPLOYEE PHONE NUMBER:\t%ld", personal.phone);
+			printf("\n\tPROGRAMMING LANGUAGES KNOWN:\t%s", personal.prog_lang);
+		}
+	}
+	if (found == 0 && ch != 'N')
+	{
+		printf("\n\tNO SUCH EMPLOYEE RECORD FOUND.");
+	}
+	fclose(data);
+	printf("\n\n\tPress 1 to Continue and 0 to EXIT");
+	printf("\n\n\tINPUT:\t");
+	int exit_status;
+	scanf("%d", &exit_status);
+	if (exit_status != 1)
+	{
+		printf("\n\n\tThank You for Using this Application.\n");
+		exit(0);
+	}
+}
+
+
 void emp_delete()
 {
 	int found = 0, del_emp_id;
