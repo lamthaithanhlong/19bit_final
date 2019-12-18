@@ -23,7 +23,7 @@ void PhongBanMenu()
 	scanf("%d", &n);
 	switch (n)
 	{
-	case 1: emp_append();
+	case 1: emp_displayAll(), emp_append();
 		break;
 	case 2: clrscr(), emp_displayAll(), emp_modify();
 		break;
