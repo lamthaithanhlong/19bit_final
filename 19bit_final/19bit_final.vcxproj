@@ -144,7 +144,6 @@
     <ClCompile Include="TimKiemMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="employeeRecord.txt" />
     <Text Include="employeeRecord1.txt" />
     <Text Include="file1.txt" />
   </ItemGroup>
