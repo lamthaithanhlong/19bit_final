@@ -75,8 +75,4 @@
       <Filter>Source Files\Menu Files</Filter>
     </ClCompile>
   </ItemGroup>
-  <ItemGroup>
-    <Text Include="file1.txt" />
-    <Text Include="employeeRecord1.txt" />
-  </ItemGroup>
 </Project>
