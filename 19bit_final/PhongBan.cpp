@@ -9,7 +9,7 @@
 static struct phongban_data
 {
 	char name[100];
-	int emp_id;
+	char emp_id[100];
 }pb;
 
 struct list {
@@ -17,7 +17,7 @@ struct list {
 	int n;
 };
 
-int avlrollno(int rno)
+int avlrollno(char rno[100])
 {
 	FILE* fp;
 	int c = 0;
@@ -26,7 +26,7 @@ int avlrollno(int rno)
 	{
 		fread(&pb, sizeof(pb), 1, fp);
 
-		if (rno == pb.emp_id)
+		if(strcpy(pb.emp_id,rno))
 		{
 			fclose(fp);
 			return 1;
@@ -40,7 +40,7 @@ void inputvalue(phongban_data& data)
 {
 	printf("\n");
 	printf("\n \temployee id:\t");
-	scanf("%d", &pb.emp_id);
+	scanf("%s", pb.emp_id);
 	printf("\n \temployee name:\t");
 	scanf("%s", pb.name);
 }
@@ -89,7 +89,7 @@ void emp_displayAll()
 	while ((fread(&pb, sizeof(pb), size, data) == size))
 	{
 		i++;
-		printf("\n\n\temployee id:\t%d", pb.emp_id);
+		printf("\n\n\temployee id:\t%s", pb.emp_id);
 		printf("\n\temployee name:\t%s", pb.name);
 	}
 	totalemployee += i;
@@ -112,7 +112,8 @@ void emp_search()
 	FILE* data;
 	char filename[] = "employeeRecord.txt";
 	data = fopen(filename, "r");
-	int found = 0, search_choice, search_emp_id;
+	int found = 0, search_choice; 
+	char search_emp_id[100];
 	char search_name[100], ch = 'y';
 	printf("\n\twhat do you know about the employee?");
 	printf("\n\temployee id: enter 1");
@@ -164,7 +165,8 @@ void emp_delete()
 {
 	int ret,rname;
 	char filename[] = "DZZZ.txt";
-	int found = 0, del_emp_id;
+	int found = 0;
+	char del_emp_id[100];
 	FILE* data, * temp;
 	data = fopen("employeeRecord.txt", "r");
 	temp = fopen("temp_data.txt", "w");
@@ -176,10 +178,10 @@ void emp_delete()
 	else
 	{
 		printf("\n\tenter employee id to delete it's record:\t");
-		scanf("%d", &del_emp_id);
+		scanf("%s", del_emp_id);
 		while ((fread(&pb, sizeof(pb), size, data) == size))
 		{
-			if (pb.emp_id != del_emp_id)
+			if (strcmp(pb.emp_id, del_emp_id))
 				fwrite(&pb, sizeof(pb), size, temp);
 		}
 		fclose(data);
@@ -207,13 +209,14 @@ void emp_modify()
 	int avl;
 	FILE* fpt;
 	FILE* fpo;
-	int s, r, ch;
+	char s[100], r[100];
+	int ch;
 	printf("Enter roll number to update:");
-	scanf("%d", &r);
+	scanf("%s", r);
 	avl = avlrollno(r);
 	if (avl == 0)
 	{
-		printf("Roll number %d is not Available in the file", r);
+		printf("Roll number %s is not Available in the file", r);
 	}
 	else
 	{
@@ -221,14 +224,14 @@ void emp_modify()
 		fpt = fopen("temp_data.txt", "w");
 		while (fread(&pb, sizeof(pb), 1, fpo))
 		{
-			s = pb.emp_id;
-			if (s != r)
+			strcpy(pb.emp_id, s);
+			if (strcmp(s,r) == 0)
 				fwrite(&pb, sizeof(pb), 1, fpt);
 			else
 			{
-				printf("\n\t1. Update Name of Roll Number %d", r);
-				printf("\n\t2. Update Mark of Roll Number %d", r);
-				printf("\n\t3. Update both Name and Mark of Roll Number %d", r);
+				printf("\n\t1. Update Name of Roll Number %s", r);
+				printf("\n\t2. Update Mark of Roll Number %s", r);
+				printf("\n\t3. Update both Name and Mark of Roll Number %s", r);
 				printf("\nEnter your choice:");
 				scanf("%d", &ch);
 				switch (ch)
