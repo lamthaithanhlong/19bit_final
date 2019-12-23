@@ -36,11 +36,10 @@ int avlrollno(char rno[100])
 	return 0;
 }
 
-void inputvalue(phongban_data& data)
+void inputvalue(char *id)
 {
 	printf("\n");
-	printf("\n \temployee id:\t");
-	scanf("%s", pb.emp_id);
+	strcpy(pb.emp_id, id);
 	printf("\n \temployee name:\t");
 	scanf("%s", pb.name);
 }
@@ -49,13 +48,22 @@ void emp_append()
 {
 	FILE* data;
 	list l;
+	char id[100];
 	char filename[] = "employeeRecord.txt";
 	data = fopen(filename, "a");
 	printf("input number of input: ");
 	scanf("%d", &l.n);
+	printf("\n \temployee id:\t");
+	scanf("%s", id);
 	for (int i = 0; i < l.n; i++)
 	{
-		inputvalue(pb);
+		strcpy(id, pb.emp_id);
+		while(strcmp(id,pb.emp_id) == 0) 
+		{
+			printf("\n \temployee id:\t");
+			scanf("%s", id);
+		}
+		inputvalue(id);
 		if (fwrite(&pb, sizeof(pb), size, data) != size)
 		{
 			printf("\n\terror in writing to file.");
@@ -269,45 +277,3 @@ void emp_modify()
 		exit(0);
 	}
 }
-
-
-//void emp_modify()
-//{
-//	FILE* data;
-//	char id[100]; int found = 0;
-//	data = fopen("employeeRecord.txt", "r+");
-//	printf("\n\tEnter Employee ID to Edit Record:\t");
-//	scanf("%s", id);
-//	while(fread(&pb, sizeof(pb), size, data) == size)
-//	{
-//		if(strcmp(pb.emp_id, id) == 0)
-//		{
-//			found = 1;
-//			printf("\n\tEXISTING RECORD IS......");
-//			printf("\n\n\tEMPLOYEE ID:\t%s", pb.emp_id);
-//			printf("\n\tEMPLOYEE NAME:\t%s", pb.name);
-//			printf("\n\n************MODIFYING EMPLOYEE RECORD**************\n");
-//			printf("\n\tEnter New Employee Name:\t");
-//			scanf("%s", pb.name);
-//			printf("\n\tEnter New Employee Position:\t");
-//			fseek(data, -sizeof(pb), SEEK_CUR);
-//			fwrite(&pb, sizeof(pb), size, data);
-//			printf("\n\n\tEmployee Record Successfuly Written.");
-//		}
-//		break;
-//	}
-//	if (found == 0)
-//	{
-//		printf("\n\tRECORD NOT FOUND...");
-//	}
-//	fclose(data);
-//	printf("\n\n\tPress 1 to Continue and 0 to EXIT");
-//	printf("\n\n\tINPUT:\t");
-//	int exit_status;
-//	scanf("%d", &exit_status);
-//	if (exit_status != 1)
-//	{
-//		printf("\n\n\tThank You for Using this Application.\n");
-//		exit(0);
-//	}
-//}
