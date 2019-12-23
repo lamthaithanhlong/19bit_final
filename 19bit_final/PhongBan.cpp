@@ -211,37 +211,37 @@ void emp_modify()
 	FILE* fpo;
 	char s[100], r[100];
 	int ch;
-	printf("Enter roll number to update:");
+	printf("enter roll number to update:");
 	scanf("%s", r);
 	avl = avlrollno(r);
 	if (avl == 0)
 	{
-		printf("Roll number %s is not Available in the file", r);
+		printf("roll number %s is not available in the file", r);
 	}
 	else
 	{
-		fpo = fopen("employeeRecord.txt", "r");
+		fpo = fopen("employeerecord.txt", "r");
 		fpt = fopen("temp_data.txt", "w");
-		while (fread(&pb, sizeof(pb), 1, fpo))
+		while (fread(&pb, sizeof(pb), size, fpo) == size)
 		{
-			strcpy(pb.emp_id, s);
-			if (strcmp(s,r) == 0)
-				fwrite(&pb, sizeof(pb), 1, fpt);
+			strcpy(s,pb.emp_id);
+			if (strcmp(s,r) != 0)
+				fwrite(&pb, sizeof(pb), size, fpt);
 			else
 			{
-				printf("\n\t1. Update Name of Roll Number %s", r);
-				printf("\n\t2. Update Mark of Roll Number %s", r);
-				printf("\n\t3. Update both Name and Mark of Roll Number %s", r);
-				printf("\nEnter your choice:");
+				printf("\n\t1. update name of roll number %s", r);
+				printf("\n\t2. update mark of roll number %s", r);
+				printf("\n\t3. update both name and mark of roll number %s", r);
+				printf("\nenter your choice:");
 				scanf("%d", &ch);
 				switch (ch)
 				{
 				case 1:
-					printf("Enter Name:");
+					printf("enter name:");
 					scanf("%s", &pb.name);
 					break;
 				default:
-					printf("Invalid Selection");
+					printf("invalid selection");
 					break;
 				}
 				fwrite(&pb, sizeof(pb), 1, fpt);
@@ -249,7 +249,7 @@ void emp_modify()
 		}
 		fclose(fpo);
 		fclose(fpt);
-		fpo = fopen("employeeRecord.txt", "w");
+		fpo = fopen("employeerecord.txt", "w");
 		fpt = fopen("temp_data.txt", "r");
 		while (fread(&pb, sizeof(pb), 1, fpt))
 		{
@@ -257,7 +257,7 @@ void emp_modify()
 		}
 		fclose(fpo);
 		fclose(fpt);
-		printf("RECORD UPDATED");
+		printf("record updated");
 	}
 	printf("\n\n\tpress 1 to continue and 0 to exit");
 	printf("\n\n\tinput:\t");
@@ -270,3 +270,44 @@ void emp_modify()
 	}
 }
 
+
+//void emp_modify()
+//{
+//	FILE* data;
+//	char id[100]; int found = 0;
+//	data = fopen("employeeRecord.txt", "r+");
+//	printf("\n\tEnter Employee ID to Edit Record:\t");
+//	scanf("%s", id);
+//	while(fread(&pb, sizeof(pb), size, data) == size)
+//	{
+//		if(strcmp(pb.emp_id, id) == 0)
+//		{
+//			found = 1;
+//			printf("\n\tEXISTING RECORD IS......");
+//			printf("\n\n\tEMPLOYEE ID:\t%s", pb.emp_id);
+//			printf("\n\tEMPLOYEE NAME:\t%s", pb.name);
+//			printf("\n\n************MODIFYING EMPLOYEE RECORD**************\n");
+//			printf("\n\tEnter New Employee Name:\t");
+//			scanf("%s", pb.name);
+//			printf("\n\tEnter New Employee Position:\t");
+//			fseek(data, -sizeof(pb), SEEK_CUR);
+//			fwrite(&pb, sizeof(pb), size, data);
+//			printf("\n\n\tEmployee Record Successfuly Written.");
+//		}
+//		break;
+//	}
+//	if (found == 0)
+//	{
+//		printf("\n\tRECORD NOT FOUND...");
+//	}
+//	fclose(data);
+//	printf("\n\n\tPress 1 to Continue and 0 to EXIT");
+//	printf("\n\n\tINPUT:\t");
+//	int exit_status;
+//	scanf("%d", &exit_status);
+//	if (exit_status != 1)
+//	{
+//		printf("\n\n\tThank You for Using this Application.\n");
+//		exit(0);
+//	}
+//}
