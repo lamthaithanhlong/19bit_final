@@ -1,2 +1,7 @@
 ﻿  PhongBan.cpp
+C:\Users\long.lam\source\repos\19bit_final\19bit_final\PhongBan.cpp(135,9): warning C4477: 'scanf' : format string '%d' requires an argument of type 'int *', but variadic argument 1 has type 'char (*)[100]'
+C:\Users\long.lam\source\repos\19bit_final\19bit_final\PhongBan.cpp(135,9): message : consider using '%hhd' in the format string
+C:\Users\long.lam\source\repos\19bit_final\19bit_final\PhongBan.cpp(151,11): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'char *'
+C:\Users\long.lam\source\repos\19bit_final\19bit_final\PhongBan.cpp(174,10): warning C4101: 'rname': unreferenced local variable
+C:\Users\long.lam\source\repos\19bit_final\19bit_final\PhongBan.cpp(174,6): warning C4101: 'ret': unreferenced local variable
   19bit_final.vcxproj -> C:\Users\long.lam\source\repos\19bit_final\Debug\19bit_final.exe

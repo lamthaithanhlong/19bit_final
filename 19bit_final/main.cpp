@@ -52,6 +52,9 @@ int main()
 			exit(0);
 		}
 	}
+	while (1)
+	{
 		MainMenu();
+	}
 	return 0;
 }
