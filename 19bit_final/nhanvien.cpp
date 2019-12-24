@@ -19,6 +19,7 @@ static struct nhanvien_data
 	char nhanvien_id[100];
 	char phongbanname[100];
 	int luong;
+	char gender[100];
 	int day;
 	int month;
 	int year;
@@ -81,6 +82,7 @@ void nhanvien_displayAll()
 		printf("\n\tnhanvienloyee name:\t%s", nv.name);
 		printf("\n\tphong ban name:\t%s", nv.phongbanname);
 		printf("\n\tluong cua nhan vien la :\t%d",nv.luong);
+		printf("\n\tgioi tinh cua nhan vien la: \t%s", nv.gender);
 		printf("\n\t");
 		printf("%d-", nv.day);
 		printf("%d-", nv.month);
@@ -95,7 +97,7 @@ void nhanvien_inputvalue(char* id)
 {
 	FILE* data,*temp;
 	int i = 0;
-	char n[100], check[100];
+	char n[100], check[100], nhanvien_gender[100];
 	char filename1[] = "employeeRecord.txt";
 	char filename[] = "employeeRecord1.txt";
 	data = fopen(filename, "r");
@@ -136,6 +138,22 @@ void nhanvien_inputvalue(char* id)
 	}
 	else 
 	{
+		printf("\n");
+		printf("gioi tinh (M la nam, F la nu) :");
+		scanf("%s", &nhanvien_gender);
+		if(strcmp(nhanvien_gender,"M") == 0) 
+		{
+			printf("chon nam");
+			strcpy(nv.gender,"Nam");
+		}
+		else if (strcmp(nhanvien_gender, "F") == 0) {
+			printf("chon nu");
+			strcpy(nv.gender, "Nu");
+		}
+		else 
+		{
+			exit(0);
+		}
 		printf("\t\nnNhap luong cua nhan vien %s :", nv.name);
 		scanf("%d", &nv.luong);
 		printf("\n");
@@ -312,3 +330,78 @@ void nhanvien_modify()
 		exit(0);
 	}
 }
+
+void PhongTraLuongItNhat()
+{
+	int a[20], count = 0, i, j, t, c;
+	FILE* fpo;
+	fpo = fopen("employeeRecord1.txt", "r");
+	while (fread(&nv, sizeof(nv), 1, fpo))
+	{
+		a[count] = nv.luong;
+		count++;
+	}
+	c = count;
+	for (i = 0; i < count - 1; i++)
+	{
+		for (j = i + 1; j < count; j++)
+		{
+			if (a[i] < a[j])
+			{
+				t = a[i];
+				a[i] = a[j];
+				a[j] = t;
+			}
+		}
+	}
+	printf("Id nhan vien.\tTen\t\tLuong\n\n");
+	count = c;
+	for (i = 0; i < count; i++)
+	{
+		rewind(fpo);
+		while (fread(&nv, sizeof(nv), 1, fpo))
+		{
+			if (a[i] == nv.luong)
+				printf("\n %s\t%s\t%d\t%s", nv.nhanvien_id, nv.name, nv.luong, nv.phongbanname);
+		}
+
+	}
+	printf("\t\n Phong tra luong it nhat la phong: %s", nv.phongbanname);
+}
+
+void count_nam_nu()
+{
+	FILE* data;
+	int i = 0;
+	char check[100];
+	char filename[] = "employeeRecord1.txt";
+	data = fopen(filename, "r");
+	printf("Nhap vao gioi tinh (M la Nam , F la Nu): ");
+	scanf("%s", check);
+	if (strcmp(check, "M") == 0)
+	{
+		strcpy(check, "Nam");
+		printf("chon nam");
+	}
+	else if (strcmp(check, "F") == 0) {
+		strcpy(check, "Nu");
+		printf("chon nu");
+	}
+	else
+	{
+		exit(0);
+	}
+	while ((fread(&nv, sizeof(nv), size, data) == size))
+	{
+		if (strcmp(nv.gender, check) == 0)
+		{
+			i++;
+			printf("\n\n\tnhanvienloyee id:\t%s", nv.nhanvien_id);
+			printf("\n\tnhanvienloyee name:\t%s", nv.name);
+			printf("\n\tphong ban name:\t%s", nv.phongbanname);
+		}
+	}
+	fclose(data);
+	printf("\n\tSo nhan vien %s duoc dem la %d",nv.gender ,i);
+}
+

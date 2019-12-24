@@ -29,6 +29,8 @@ void TimKiemMenu()
 		break;
 	case 2: PhongTraLuongItNhat();
 		break;
+	case 3: count_nam_nu();
+		break;
 	case 6:  clrscr(), head_disp(), MainMenu();
 	default:
 		break;

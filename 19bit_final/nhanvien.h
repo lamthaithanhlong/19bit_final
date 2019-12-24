@@ -34,6 +34,8 @@ void nhanvien_delete();
 void nhanvien_modify();
 void nhanvien_search();
 int count_nhan_vien(char phongban_id[100]);
+void PhongTraLuongItNhat();
+void count_nam_nu();
 
 #endif // !__NhanVien_H_
 

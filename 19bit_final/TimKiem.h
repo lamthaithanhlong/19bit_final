@@ -10,7 +10,6 @@
 #define max_data 10
 
 void nhanvien_search();
-void PhongTraLuongItNhat();
 
 #endif // !__TimKiem_H_
 
