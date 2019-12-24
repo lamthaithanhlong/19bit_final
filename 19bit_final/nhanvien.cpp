@@ -147,15 +147,12 @@ void nhanvien_append()
 	}
 }
 
-void count_nhan_vien()
+int count_nhan_vien(char check[100])
 {
 	FILE* data;
 	int i=0;
-	char check[100];
 	char filename[] = "employeeRecord1.txt";
 	data = fopen(filename, "r");
-	printf("\nnhap phong ban can dem so luong :");
-	scanf("%s", &check);
 	while ((fread(&nv, sizeof(nv), size, data) == size))
 	{
 		if (strcmp(nv.phongbanname,check) == 0)
@@ -167,7 +164,7 @@ void count_nhan_vien()
 		}
 	}
 	fclose(data);
-	printf("\n\t so luong sau khi dem la: %d", i);
+	return i;
 }
 
 void nhanvien_search()
