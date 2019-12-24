@@ -13,9 +13,9 @@ static struct NhanVien_data
 {
 	char name[100];
 	char nhanvien_id[100];
-}pb;
+}nv;
 
-struct list {
+struct nhanvien_list {
 	NhanVien_data a[max_data];
 	int n;
 };
@@ -28,7 +28,7 @@ void nhanvien_displayAll();
 void nhanvien_delete();
 void nhanvien_modify();
 void nhanvien_search();
-void count_nhan_vien();
+int count_nhan_vien(char phongban_id[100]);
 
 #endif // !__NhanVien_H_
 
