@@ -48,6 +48,9 @@
     <ClInclude Include="TimKiemMenu.h">
       <Filter>Source Files\Menu Files</Filter>
     </ClInclude>
+    <ClInclude Include="nhanvien.h">
+      <Filter>Source Files\Nhan Vien Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Extend.cpp">
@@ -73,6 +76,9 @@
     </ClCompile>
     <ClCompile Include="TimKiemMenu.cpp">
       <Filter>Source Files\Menu Files</Filter>
+    </ClCompile>
+    <ClCompile Include="nhanvien.cpp">
+      <Filter>Source Files\Nhan Vien Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

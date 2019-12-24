@@ -2,20 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-
-#define size 1
-#define max_data 10
-
-static struct phongban_data
-{
-	char name[100];
-	char emp_id[100];
-}pb;
-
-struct list {
-	phongban_data a[max_data];
-	int n;
-};
+#include "PhongBan.h"
 
 int avlrollno(char rno[100])
 {
@@ -150,11 +137,11 @@ void emp_search()
 	}
 	while (fread(&pb, sizeof(pb), size, data) == size)
 	{
-		if (pb.emp_id == search_emp_id || strcmp(pb.name, search_name) == 0)
+		if (strcmp(pb.emp_id, search_emp_id) == 0 || strcmp(pb.name, search_name) == 0)
 		{
 			found = 1;
 			printf("\n\t******************employee record is......");
-			printf("\n\n\temployee id:\t%d", pb.emp_id);
+			printf("\n\n\temployee id:\t%s", pb.emp_id);
 			printf("\n\temployee name:\t%s", pb.name);
 		}
 	}
