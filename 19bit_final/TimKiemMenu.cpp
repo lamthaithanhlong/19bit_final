@@ -3,6 +3,7 @@
 #include"MainMenu.h"
 #include"PhongBan.h"
 #include"extend.h"
+#include"TimKiem.h"
 #include"TimKiemMenu.h"
 
 void TimKiemMenuView()
@@ -23,7 +24,7 @@ void TimKiemMenu()
 	scanf("%d", &n);
 	switch (n)
 	{
-	case 1:emp_search();
+	case 1: nhanvien_search();
 		break;
 	case 2:;
 		break;

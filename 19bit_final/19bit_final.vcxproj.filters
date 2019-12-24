@@ -25,6 +25,9 @@
     <Filter Include="Source Files\Nhan Vien Files">
       <UniqueIdentifier>{38dc8db4-4d45-45bb-9c73-8bffa9c48d15}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Tim Kiem Files">
+      <UniqueIdentifier>{54016224-a7fc-46c6-8aa0-d021dfdaed7d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="extend.h">
@@ -47,6 +50,12 @@
     </ClInclude>
     <ClInclude Include="TimKiemMenu.h">
       <Filter>Source Files\Menu Files</Filter>
+    </ClInclude>
+    <ClInclude Include="nhanvien.h">
+      <Filter>Source Files\Nhan Vien Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TimKiem.h">
+      <Filter>Source Files\Tim Kiem Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -73,6 +82,12 @@
     </ClCompile>
     <ClCompile Include="TimKiemMenu.cpp">
       <Filter>Source Files\Menu Files</Filter>
+    </ClCompile>
+    <ClCompile Include="nhanvien.cpp">
+      <Filter>Source Files\Nhan Vien Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TimKiem.cpp">
+      <Filter>Source Files\Tim Kiem Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

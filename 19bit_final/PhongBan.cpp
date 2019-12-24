@@ -2,20 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-
-#define size 1
-#define max_data 10
-
-static struct phongban_data
-{
-	char name[100];
-	char emp_id[100];
-}pb;
-
-struct list {
-	phongban_data a[max_data];
-	int n;
-};
+#include "nhanvien.h"
+#include "PhongBan.h"
 
 int avlrollno(char rno[100])
 {
@@ -150,11 +138,11 @@ void emp_search()
 	}
 	while (fread(&pb, sizeof(pb), size, data) == size)
 	{
-		if (pb.emp_id == search_emp_id || strcmp(pb.name, search_name) == 0)
+		if (strcmp(pb.emp_id, search_emp_id) == 0 || strcmp(pb.name, search_name) == 0)
 		{
 			found = 1;
 			printf("\n\t******************employee record is......");
-			printf("\n\n\temployee id:\t%d", pb.emp_id);
+			printf("\n\n\temployee id:\t%s", pb.emp_id);
 			printf("\n\temployee name:\t%s", pb.name);
 		}
 	}
@@ -179,33 +167,41 @@ void emp_delete()
 {
 	int ret,rname;
 	int found = 0;
-	char del_emp_id[100];
+	char del_emp_name[100];
 	FILE* data, * temp;
 	data = fopen("employeeRecord.txt", "r");
 	temp = fopen("temp_data.txt", "w");
-	if (data == NULL)
-	{
-		printf("\n\terror in opening file");
-		exit(0);
-	}
-	else
-	{
-		printf("\n\tenter employee id to delete it's record:\t");
-		scanf("%s", del_emp_id);
-		while ((fread(&pb, sizeof(pb), size, data) == size))
+	emp_displayAll();
+	printf("\n\tenter employee id to delete it's record:\t");
+	scanf("%s", del_emp_name);
+	if (count_nhan_vien(del_emp_name) == 0) {
+		if (data == NULL)
 		{
-			if (strcmp(pb.emp_id, del_emp_id))
-				fwrite(&pb, sizeof(pb), size, temp);
+			printf("\n\terror in opening file");
+			exit(0);
 		}
+		else
+		{
+			while ((fread(&pb, sizeof(pb), size, data) == size))
+			{
+				if (strcmp(pb.name, del_emp_name) == 0)
+					fwrite(&pb, sizeof(pb), size, temp);
+			}
+			fclose(data);
+			fclose(temp);
+		}
+		data = fopen("employeeRecord.txt", "w");
+		temp = fopen("temp_data.txt", "r");
+		while (fread(&pb, sizeof(pb), 1, temp))
+			fwrite(&pb, sizeof(pb), 1, data);
 		fclose(data);
 		fclose(temp);
+		printf("Xoa thanh cong");
 	}
-	data = fopen("employeeRecord.txt", "w");
-	temp = fopen("temp_data.txt", "r");
-	while (fread(&pb, sizeof(pb), 1, temp))
-		fwrite(&pb, sizeof(pb), 1, data);
-	fclose(data);
-	fclose(temp);
+	else 
+	{
+		printf("\t\n loi phat sinh. Nhan vien van con trong phong la %d",count_nhan_vien(del_emp_name));
+	}
 	printf("\n\n\tpress 1 to continue and 0 to exit");
 	printf("\n\n\tinput:\t");
 	int exit_status;
@@ -251,7 +247,7 @@ void emp_modify()
 				{
 				case 1:
 					printf("enter name:");
-					scanf("%s", &pb.name);
+					scanf("%s", pb.name);
 					break;
 				default:
 					printf("invalid selection");
