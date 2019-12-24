@@ -247,7 +247,7 @@ void emp_modify()
 				{
 				case 1:
 					printf("enter name:");
-					scanf("%s", &pb.name);
+					scanf("%s", pb.name);
 					break;
 				default:
 					printf("invalid selection");

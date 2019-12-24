@@ -13,6 +13,11 @@ static struct NhanVien_data
 {
 	char name[100];
 	char nhanvien_id[100];
+	char phongbanname[100];
+	int luong;
+	int day;
+	int month;
+	int year;
 }nv;
 
 struct nhanvien_list {
