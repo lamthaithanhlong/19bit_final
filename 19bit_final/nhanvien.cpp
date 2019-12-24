@@ -38,6 +38,28 @@ int nhanvien_avlrollno(char rno[100])
 	return 0;
 }
 
+void nhanvien_displayAll()
+{
+	FILE* data;
+	int n;
+	char filename[] = "employeeRecord1.txt";
+	data = fopen(filename, "r");
+	int totalnhanvienloyee = 0;
+	int i = 0;
+	printf("\n\n\t**********************all nhanvienloyees information*********************\n\n");
+
+	while ((fread(&nv, sizeof(nv), size, data) == size))
+	{
+		i++;
+		printf("\n\n\tnhanvienloyee id:\t%s", nv.nhanvien_id);
+		printf("\n\tnhanvienloyee name:\t%s", nv.name);
+		printf("\n\tphong ban name:\t%s", nv.phongbanname);
+	}
+	totalnhanvienloyee += i;
+	printf("\n\n\ttotal nhanvienloyees: %d\n\n", totalnhanvienloyee);
+	fclose(data);
+}
+
 void nhanvien_inputvalue(char* id)
 {
 	FILE* data,*temp;
@@ -48,10 +70,10 @@ void nhanvien_inputvalue(char* id)
 	data = fopen(filename, "r");
 	temp = fopen(filename1, "r");
 	printf("\n");
+	nhanvien_displayAll();
 	printf("\n \tnhanvienloyee id:\t");
 	scanf("%s", id);
 	while ((fread(&nv, sizeof(nv), 1, data))) {
-
 		if (strcmp(nv.nhanvien_id, id) == 0)
 		{
 			printf("\n \tnhanvienloyee id:\t");
@@ -73,6 +95,7 @@ void nhanvien_inputvalue(char* id)
 			printf("\n\t******************nhanvienloyee record is......");
 			printf("\n\n\tnhanvienloyee id:\t%s", pb.emp_id);
 			printf("\n\tnhanvienloyee name:\t%s", pb.name);
+			strcpy(nv.phongbanname, check);
 		}
 	}
 	if (i == 0)
@@ -111,15 +134,6 @@ void nhanvien_append()
 		{
 			printf("\n\tnhanvienloyee record successfully written.");
 		}
-		if (fwrite(&nv, sizeof(nv), size, data) != size)
-		{
-			printf("\n\terror in writing to file.");
-			exit(0);
-		}
-		else
-		{
-			printf("\n\tnhanvienloyee record successfully written.");
-		}
 	}
 	fclose(data);
 	printf("\n\n\tpress 1 to continue and 0 to exit");
@@ -131,38 +145,6 @@ void nhanvien_append()
 		printf("\n\n\tthank you for using this application.\n");
 		exit(0);
 	}
-}
-
-void nhanvien_displayAll()
-{
-	FILE* data;
-	int n;
-	char filename[] = "employeeRecord1.txt";
-	data = fopen(filename, "r");
-	int totalnhanvienloyee = 0;
-	int i = 0;
-	printf("\n\n\t**********************all nhanvienloyees information*********************\n\n");
-	
-	while ((fread(&nv, sizeof(nv), size, data) == size))
-	{
-		i++;
-		printf("\n\n\tnhanvienloyee id:\t%s", nv.nhanvien_id);
-		printf("\n\tnhanvienloyee name:\t%s", nv.name);
-		printf("\n\tphong ban name:\t%s", nv.phongbanname);
-	}
-	totalnhanvienloyee += i;
-	printf("\n\n\ttotal nhanvienloyees: %d\n\n", totalnhanvienloyee);
-	fclose(data);
-	printf("\n\n\tpress 1 to continue and 0 to exit");
-	printf("\n\n\tinput:\t");
-	int exit_status;
-	scanf("%d", &exit_status);
-	if (exit_status != 1)
-	{
-		printf("\n\n\tthank you for using this application.\n");
-		exit(0);
-	}
-
 }
 
 

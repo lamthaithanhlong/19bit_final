@@ -1,6 +1,6 @@
 ﻿  nhanvien.cpp
-C:\Users\ACER\source\repos\19bit_final\19bit_final\nhanvien.cpp(45,7): warning C4101: 'n': unreferenced local variable
-C:\Users\ACER\source\repos\19bit_final\19bit_final\nhanvien.cpp(133,6): warning C4101: 'n': unreferenced local variable
-C:\Users\ACER\source\repos\19bit_final\19bit_final\nhanvien.cpp(219,11): warning C4101: 'rname': unreferenced local variable
-C:\Users\ACER\source\repos\19bit_final\19bit_final\nhanvien.cpp(219,6): warning C4101: 'ret': unreferenced local variable
-  19bit_final.vcxproj -> C:\Users\ACER\source\repos\19bit_final\x64\Debug\19bit_final.exe
+C:\Users\long.lam\source\repos\19bit_final\19bit_final\nhanvien.cpp(44,6): warning C4101: 'n': unreferenced local variable
+C:\Users\long.lam\source\repos\19bit_final\19bit_final\nhanvien.cpp(67,7): warning C4101: 'n': unreferenced local variable
+C:\Users\long.lam\source\repos\19bit_final\19bit_final\nhanvien.cpp(207,11): warning C4101: 'rname': unreferenced local variable
+C:\Users\long.lam\source\repos\19bit_final\19bit_final\nhanvien.cpp(207,6): warning C4101: 'ret': unreferenced local variable
+  19bit_final.vcxproj -> C:\Users\long.lam\source\repos\19bit_final\x64\Debug\19bit_final.exe
