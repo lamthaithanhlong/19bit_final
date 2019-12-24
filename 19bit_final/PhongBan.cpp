@@ -2,20 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-
-#define size 1
-#define max_data 10
-
-static struct phongban_data
-{
-	char name[100];
-	char emp_id[100];
-}pb;
-
-struct list {
-	phongban_data a[max_data];
-	int n;
-};
+#include "PhongBan.h"
 
 int avlrollno(char rno[100])
 {
@@ -38,7 +25,21 @@ int avlrollno(char rno[100])
 
 void inputvalue(char *id)
 {
+	FILE* data;
+	int i = 0;
+	char filename[] = "employeerecord.txt";
+	data = fopen(filename, "r");
 	printf("\n");
+	printf("\n \temployee id:\t");
+	scanf("%s", id);
+	while ((fread(&pb, sizeof(pb), 1, data))) {
+		
+		if (strcmp(pb.emp_id,id) == 0)
+		{
+			printf("\n \temployee id:\t");
+			scanf("%s", id);
+		}
+	}
 	strcpy(pb.emp_id, id);
 	printf("\n \temployee name:\t");
 	scanf("%s", pb.name);
@@ -49,21 +50,13 @@ void emp_append()
 	FILE* data;
 	list l;
 	char id[100];
-	char filename[] = "employeeRecord.txt";
+	char filename[] = "employeerecord.txt";
 	data = fopen(filename, "a");
 	printf("input number of input: ");
 	scanf("%d", &l.n);
-	printf("\n \temployee id:\t");
-	scanf("%s", id);
+	inputvalue(id);
 	for (int i = 0; i < l.n; i++)
 	{
-		strcpy(id, pb.emp_id);
-		while(strcmp(id,pb.emp_id) == 0) 
-		{
-			printf("\n \temployee id:\t");
-			scanf("%s", id);
-		}
-		inputvalue(id);
 		if (fwrite(&pb, sizeof(pb), size, data) != size)
 		{
 			printf("\n\terror in writing to file.");
@@ -144,11 +137,11 @@ void emp_search()
 	}
 	while (fread(&pb, sizeof(pb), size, data) == size)
 	{
-		if (pb.emp_id == search_emp_id || strcmp(pb.name, search_name) == 0)
+		if (strcmp(pb.emp_id, search_emp_id) == 0 || strcmp(pb.name, search_name) == 0)
 		{
 			found = 1;
 			printf("\n\t******************employee record is......");
-			printf("\n\n\temployee id:\t%d", pb.emp_id);
+			printf("\n\n\temployee id:\t%s", pb.emp_id);
 			printf("\n\temployee name:\t%s", pb.name);
 		}
 	}
@@ -172,7 +165,6 @@ void emp_search()
 void emp_delete()
 {
 	int ret,rname;
-	char filename[] = "DZZZ.txt";
 	int found = 0;
 	char del_emp_id[100];
 	FILE* data, * temp;

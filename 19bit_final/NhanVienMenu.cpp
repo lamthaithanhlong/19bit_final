@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<conio.h>
 #include"NhanVienMenu.h"
+#include"nhanvien.h"
 
 void NhanVienMenuView()
 {
@@ -20,9 +21,11 @@ void NhanVienMenu()
 	scanf("%d", &n);
 	switch (n)
 	{
-	case 1: ;
+	case 1:nhanvien_append();
 		break;
-	case 2: ;
+	case 2: count_nhan_vien();
+		break;
+	case 4: nhanvien_displayAll();
 		break;
 	default:
 		break;

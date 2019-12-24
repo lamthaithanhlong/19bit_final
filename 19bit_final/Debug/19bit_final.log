@@ -1,7 +1,17 @@
-﻿  PhongBan.cpp
-C:\Users\long.lam\source\repos\19bit_final\19bit_final\PhongBan.cpp(135,9): warning C4477: 'scanf' : format string '%d' requires an argument of type 'int *', but variadic argument 1 has type 'char (*)[100]'
-C:\Users\long.lam\source\repos\19bit_final\19bit_final\PhongBan.cpp(135,9): message : consider using '%hhd' in the format string
-C:\Users\long.lam\source\repos\19bit_final\19bit_final\PhongBan.cpp(151,11): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'char *'
-C:\Users\long.lam\source\repos\19bit_final\19bit_final\PhongBan.cpp(174,10): warning C4101: 'rname': unreferenced local variable
-C:\Users\long.lam\source\repos\19bit_final\19bit_final\PhongBan.cpp(174,6): warning C4101: 'ret': unreferenced local variable
-  19bit_final.vcxproj -> C:\Users\long.lam\source\repos\19bit_final\Debug\19bit_final.exe
+﻿  Extend.cpp
+  NhanVienMenu.cpp
+  PhongBanMenu.cpp
+  main.cpp
+  MainMenu.cpp
+  PhongBan.cpp
+C:\Users\ACER\source\repos\19bit_final\19bit_final\PhongBan.cpp(138,9): warning C4477: 'scanf' : format string '%d' requires an argument of type 'int *', but variadic argument 1 has type 'char (*)[100]'
+C:\Users\ACER\source\repos\19bit_final\19bit_final\PhongBan.cpp(138,9): message : consider using '%hhd' in the format string
+C:\Users\ACER\source\repos\19bit_final\19bit_final\PhongBan.cpp(154,11): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'char *'
+C:\Users\ACER\source\repos\19bit_final\19bit_final\PhongBan.cpp(177,10): warning C4101: 'rname': unreferenced local variable
+  TimKiemMenu.cpp
+  Generating Code...
+C:\Users\ACER\source\repos\19bit_final\19bit_final\PhongBan.cpp(177,6): warning C4101: 'ret': unreferenced local variable
+  fort.c
+C:\Users\ACER\source\repos\19bit_final\19bit_final\fort.c(42,1): warning C4005: '_CRT_SECURE_NO_WARNINGS': macro redefinition
+C:\Users\ACER\source\repos\19bit_final\19bit_final\fort.c : message : see previous definition of '_CRT_SECURE_NO_WARNINGS'
+  19bit_final.vcxproj -> C:\Users\ACER\source\repos\19bit_final\Debug\19bit_final.exe

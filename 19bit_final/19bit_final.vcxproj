@@ -89,6 +89,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions); _CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -127,6 +128,7 @@
   <ItemGroup>
     <ClInclude Include="extend.h" />
     <ClInclude Include="fort.h" />
+    <ClInclude Include="nhanvien.h" />
     <ClInclude Include="NhanVienMenu.h" />
     <ClInclude Include="PhongBanMenu.h" />
     <ClInclude Include="MainMenu.h" />
@@ -136,6 +138,7 @@
   <ItemGroup>
     <ClCompile Include="Extend.cpp" />
     <ClCompile Include="fort.c" />
+    <ClCompile Include="nhanvien.cpp" />
     <ClCompile Include="NhanVienMenu.cpp" />
     <ClCompile Include="PhongBanMenu.cpp" />
     <ClCompile Include="main.cpp" />
