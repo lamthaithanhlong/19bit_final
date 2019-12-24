@@ -56,3 +56,42 @@ void nhanvien_search()
 		exit(0);
 	}
 }
+
+
+void PhongTraLuongItNhat()
+{
+	int a[20], count = 0, i, j, t, c;
+	FILE* fpo;
+	fpo = fopen("employeeRecord1.txt", "r");
+	while (fread(&nv, sizeof(nv), 1, fpo))
+	{
+		a[count] = nv.luong;
+		count++;
+	}
+	c = count;
+	for (i = 0; i < count - 1; i++)
+	{
+		for (j = i + 1; j < count; j++)
+		{
+			if (a[i] < a[j])
+			{
+				t = a[i];
+				a[i] = a[j];
+				a[j] = t;
+			}
+		}
+	}
+	printf("Id nhan vien.\tTen\t\tLuong\n\n");
+	count = c;
+	for (i = 0; i < count; i++)
+	{
+		rewind(fpo);
+		while (fread(&nv, sizeof(nv), 1, fpo))
+		{
+			if (a[i] == nv.luong)
+				printf("\n %s\t\t %s \t\t %d \t %s", nv.nhanvien_id, nv.name, nv.luong, nv.phongbanname);
+		}
+
+	}
+	printf("\t\n Phong tra luong it nhat la phong: %s", nv.phongbanname);
+}

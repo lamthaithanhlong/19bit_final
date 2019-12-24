@@ -4,6 +4,7 @@
 #include"PhongBan.h"
 #include"extend.h"
 #include"TimKiem.h"
+#include"nhanvien.h"
 #include"TimKiemMenu.h"
 
 void TimKiemMenuView()
@@ -26,7 +27,7 @@ void TimKiemMenu()
 	{
 	case 1: nhanvien_search();
 		break;
-	case 2:;
+	case 2: PhongTraLuongItNhat();
 		break;
 	case 6:  clrscr(), head_disp(), MainMenu();
 	default:
