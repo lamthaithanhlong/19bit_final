@@ -23,7 +23,7 @@ void NhanVienMenu()
 	{
 	case 1:nhanvien_append();
 		break;
-	case 2: ;
+	case 3: nhanvien_delete();
 		break;
 	case 4: nhanvien_displayAll();
 		break;

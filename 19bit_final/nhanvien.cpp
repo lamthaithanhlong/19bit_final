@@ -7,17 +7,43 @@
 #define size 1
 #define max_data 10
 
+struct Date {
+	int day;
+	int month;
+	int year;
+} date;
+
 static struct nhanvien_data
 {
 	char name[100];
 	char nhanvien_id[100];
 	char phongbanname[100];
+	int luong;
+	int day;
+	int month;
+	int year;
 }nv;
 
 struct nhanvien_list {
 	nhanvien_data a[max_data];
 	int n;
 };
+
+void nhapngay(Date d) {
+	printf("\n");
+	printf("\n\tnhap ngay :");
+	scanf("%d", &d.day);
+	printf("\t\nnhap thang :");
+	scanf("%d", &d.month);
+	printf("\n\tnhap nam :");
+	scanf("%d", &d.year);
+}
+
+void xuatngay(Date d) {
+	printf("ngay %d", d.day);
+	printf("thang %d", d.month);
+	printf("nam %d", d.year);
+}
 
 int nhanvien_avlrollno(char rno[100])
 {
@@ -54,6 +80,11 @@ void nhanvien_displayAll()
 		printf("\n\n\tnhanvienloyee id:\t%s", nv.nhanvien_id);
 		printf("\n\tnhanvienloyee name:\t%s", nv.name);
 		printf("\n\tphong ban name:\t%s", nv.phongbanname);
+		printf("\n\tluong cua nhan vien la :\t%d",nv.luong);
+		printf("\n\t");
+		printf("%d-", nv.day);
+		printf("%d-", nv.month);
+		printf("%d", nv.year);
 	}
 	totalnhanvienloyee += i;
 	printf("\n\n\ttotal nhanvienloyees: %d\n\n", totalnhanvienloyee);
@@ -71,18 +102,19 @@ void nhanvien_inputvalue(char* id)
 	temp = fopen(filename1, "r");
 	printf("\n");
 	nhanvien_displayAll();
-	printf("\n \tnhanvienloyee id:\t");
+	printf("\n \tnhap ma id nhan vien:\t");
 	scanf("%s", id);
 	while ((fread(&nv, sizeof(nv), 1, data))) {
 		if (strcmp(nv.nhanvien_id, id) == 0)
 		{
-			printf("\n \tnhanvienloyee id:\t");
+			printf("\n \tnhap lai ma id cua nhan vien:\t");
 			scanf("%s", id);
 		}
 	}
 	strcpy(nv.nhanvien_id, id);
-	printf("\n \tnhanvienloyee name:\t");
-	scanf("%s", nv.name);
+	printf("\n \tnhap ho en nhan vien:\t");
+	rewind(stdin);
+	gets_s(nv.name);
 	emp_displayAll();
 	printf("\n");
 	printf("nhap vao ma phong ban nhan vien can vao: ");
@@ -101,13 +133,19 @@ void nhanvien_inputvalue(char* id)
 	if (i == 0)
 	{
 		printf("\n\tno such nhanvienloyee record found.");
-		int exit_status;
-		scanf("%d", &exit_status);
-		if (exit_status != 1)
-		{
-			printf("\n\n\tthank you for using this application.\n");
-			exit(0);
-		}
+	}
+	else 
+	{
+		printf("\t\nnNhap luong cua nhan vien %s :", nv.name);
+		scanf("%d", &nv.luong);
+		printf("\n");
+		printf("\n\t=====Vui Long cung cap thong tin ngay sinh========");
+		printf("\n\tnhap ngay :");
+		scanf("%d", &nv.day);
+		printf("\t\nnhap thang :");
+		scanf("%d", &nv.month);
+		printf("\n\tnhap nam :");
+		scanf("%d", &nv.year);
 	}
 	fclose(data);
 	fclose(temp);
