@@ -147,6 +147,28 @@ void nhanvien_append()
 	}
 }
 
+void count_nhan_vien()
+{
+	FILE* data;
+	int i=0;
+	char check[100];
+	char filename[] = "employeeRecord1.txt";
+	data = fopen(filename, "r");
+	printf("\nnhap phong ban can dem so luong :");
+	scanf("%s", &check);
+	while ((fread(&nv, sizeof(nv), size, data) == size))
+	{
+		if (strcmp(nv.phongbanname,check) == 0)
+		{
+			i++;
+			printf("\n\n\tnhanvienloyee id:\t%s", nv.nhanvien_id);
+			printf("\n\tnhanvienloyee name:\t%s", nv.name);
+			printf("\n\tphong ban name:\t%s", nv.phongbanname);
+		}
+	}
+	fclose(data);
+	printf("\n\t so luong sau khi dem la: %d", i);
+}
 
 void nhanvien_search()
 {

@@ -23,6 +23,8 @@ void NhanVienMenu()
 	{
 	case 1:nhanvien_append();
 		break;
+	case 2: count_nhan_vien();
+		break;
 	case 4: nhanvien_displayAll();
 		break;
 	default:

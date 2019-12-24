@@ -28,6 +28,7 @@ void nhanvien_displayAll();
 void nhanvien_delete();
 void nhanvien_modify();
 void nhanvien_search();
+void count_nhan_vien();
 
 #endif // !__NhanVien_H_
 
