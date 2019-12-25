@@ -19,6 +19,7 @@ static struct nhanvien_data
 	char nhanvien_id[100];
 	char phongbanname[100];
 	int luong;
+	int dem_nu;
 	char gender[100];
 	int day;
 	int month;
@@ -403,5 +404,85 @@ void count_nam_nu()
 	}
 	fclose(data);
 	printf("\n\tSo nhan vien %s duoc dem la %d",nv.gender ,i);
+}
+
+int count_nu()
+{
+	FILE* data;
+	int i = 0;
+	char check[100];
+	char check_nu[] = "*";
+	char filename[] = "employeeRecord1.txt";
+	data = fopen(filename, "r");
+	while ((fread(&nv, sizeof(nv), size, data) == size))
+	{
+		if (strcmp(nv.gender, "Nu") == 0 && strcmp(nv.phongbanname, check_nu) == 0)
+		{
+			i++;
+		}
+	}
+	printf("\n\tSo nhan vien %s duoc dem la %d", nv.gender, i);
+	fclose(data);
+	return i;
+}
+
+
+int count_nu_phong_ban(char check_nu[100])
+{
+	FILE* data;
+	int i = 0;
+	char check[100];
+	char filename[] = "employeeRecord1.txt";
+	data = fopen(filename, "r");
+	while ((fread(&nv, sizeof(nv), size, data) == size))
+	{
+		if (strcmp(nv.gender, "Nu") == 0 && strcmp(nv.phongbanname, check_nu) == 0)
+		{
+			i++;
+		}
+	}
+	printf("\n\tSo nhan vien %s duoc dem la %d", nv.gender, i);
+	fclose(data);
+	return i;
+}
+
+void PhongCoNhieuNuNhat()
+{
+	int a[20], count = 0, i, j, t, c;
+	FILE* fpo;
+	fpo = fopen("employeeRecord1.txt", "r");
+	while (fread(&nv, sizeof(nv), 1, fpo))
+	{
+		a[count] = count_nu();
+		count++;
+	}
+	c = count;
+	for (i = 0; i < count - 1; i++)
+	{
+		for (j = i + 1; j < count; j++)
+		{
+			if (a[i] < a[j])
+			{
+				t = a[i];
+				a[i] = a[j];
+				a[j] = t;
+			}
+		}
+	}
+	printf("Id nhan vien.\tTen\t\tLuong\n\n");
+	count = c;
+	for (i = 0; i < count; i++)
+	{
+		rewind(fpo);
+		while (fread(&nv, sizeof(nv), 1, fpo))
+		{
+			if (a[i] == count_nu());
+			{
+				printf("\n %s\t%s\t%s", nv.nhanvien_id, nv.name, nv.phongbanname);
+			}
+		}
+
+	}
+	printf("\t\n Phong co nhieu nu nhat la phong: %s", nv.phongbanname);
 }
 

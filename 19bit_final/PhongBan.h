@@ -28,6 +28,7 @@ void emp_displayAll();
 void emp_delete();
 void emp_modify();
 void emp_search();
+void count_nu_nhanvien();
 
 #endif // !__PhongBan_H_
 

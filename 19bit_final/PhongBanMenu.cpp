@@ -33,6 +33,8 @@ void PhongBanMenu()
 		break;
 	case 5: clrscr(), head_disp(), MainMenu();
 		break;
+	case 6: count_nu_nhanvien();
+		break;
 	default:
 		break;
 	}

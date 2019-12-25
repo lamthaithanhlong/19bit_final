@@ -15,6 +15,7 @@ static struct NhanVien_data
 	char nhanvien_id[100];
 	char phongbanname[100];
 	int luong;
+	int dem_nu;
 	int day;
 	int month;
 	int year;
@@ -36,6 +37,8 @@ void nhanvien_search();
 int count_nhan_vien(char phongban_id[100]);
 void PhongTraLuongItNhat();
 void count_nam_nu();
+void PhongCoNhieuNuNhat();
+int count_nu_phong_ban(char check_nu[100]);
 
 #endif // !__NhanVien_H_
 

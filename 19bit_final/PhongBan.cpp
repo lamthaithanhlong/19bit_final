@@ -46,6 +46,23 @@ void inputvalue(char *id)
 	scanf("%s", pb.name);
 }
 
+void count_nu_nhanvien() 
+{
+	FILE* fe;
+	char check[100];
+	fe = fopen("employeeRecord1.txt", "r");
+	printf("\n \temployee name:\t");
+	scanf("%s", check);
+	while ((fread(&nv, sizeof(nv), 1, fe))) {
+		strcpy(nv.name, check);
+		if (count_nu_phong_ban(nv.name) != 0)
+		{
+			printf("\n \temployee female: %d\t", count_nu_phong_ban(nv.name));
+			nv.dem_nu == count_nu_phong_ban(nv.name);
+		}
+	}
+}
+
 void emp_append()
 {
 	FILE* data;
