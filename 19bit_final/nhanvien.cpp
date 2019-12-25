@@ -243,7 +243,7 @@ void nhanvien_delete()
 		scanf("%s", del_nhanvien_id);
 		while ((fread(&nv, sizeof(nv), size, data) == size))
 		{
-			if (strcmp(nv.nhanvien_id, del_nhanvien_id))
+			if (strcmp(nv.nhanvien_id, del_nhanvien_id) != 0)
 				fwrite(&nv, sizeof(nv), size, tnhanvien);
 		}
 		fclose(data);

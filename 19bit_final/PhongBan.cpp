@@ -201,7 +201,7 @@ void emp_delete()
 		{
 			while ((fread(&pb, sizeof(pb), size, data) == size))
 			{
-				if (strcmp(pb.name, del_emp_name) == 0)
+				if (strcmp(pb.name, del_emp_name) != 0)
 					fwrite(&pb, sizeof(pb), size, temp);
 			}
 			fclose(data);
