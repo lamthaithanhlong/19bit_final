@@ -79,8 +79,8 @@ void nhanvien_displayAll()
 	while ((fread(&nv, sizeof(nv), size, data) == size))
 	{
 		i++;
-		printf("\n\n\tnhanvienloyee id:\t%s", nv.nhanvien_id);
-		printf("\n\tnhanvienloyee name:\t%s", nv.name);
+		printf("\n\n\tnhan vien id:\t%s", nv.nhanvien_id);
+		printf("\n\tnhan vien name:\t%s", nv.name);
 		printf("\n\tphong ban name:\t%s", nv.phongbanname);
 		printf("\n\tluong cua nhan vien la :\t%d",nv.luong);
 		printf("\n\tgioi tinh cua nhan vien la: \t%s", nv.gender);
@@ -90,7 +90,7 @@ void nhanvien_displayAll()
 		printf("%d", nv.year);
 	}
 	totalnhanvienloyee += i;
-	printf("\n\n\ttotal nhanvienloyees: %d\n\n", totalnhanvienloyee);
+	printf("\n\n\ttong so luong nhan vien: %d\n\n", totalnhanvienloyee);
 	fclose(data);
 }
 
@@ -128,14 +128,14 @@ void nhanvien_inputvalue(char* id)
 		{
 			i = 1;
 			printf("\n\t******************nhanvienloyee record is......");
-			printf("\n\n\tnhanvienloyee id:\t%s", pb.phongban_id);
-			printf("\n\tnhanvienloyee name:\t%s", pb.name);
+			printf("\n\n\tphong ban id:\t%s", pb.phongban_id);
+			printf("\n\tten phong ban:\t%s", pb.name);
 			strcpy(nv.phongbanname, check);
 		}
 	}
 	if (i == 0)
 	{
-		printf("\n\tno such nhanvienloyee record found.");
+		printf("\n\tkhong tim thay nhan vien.");
 	}
 	else 
 	{
@@ -177,31 +177,17 @@ void nhanvien_append()
 	char id[100];
 	char filename[] = "NhanVien.txt";
 	data = fopen(filename, "a");
-	printf("input number of input: ");
-	scanf("%d", &l.n);
 	nhanvien_inputvalue(id);
-	for (int i = 0; i < l.n; i++)
+	if (fwrite(&nv, sizeof(nv), size, data) != size)
 	{
-		if (fwrite(&nv, sizeof(nv), size, data) != size)
-		{
-			printf("\n\terror in writing to file.");
-			exit(0);
-		}
-		else
-		{
-			printf("\n\tnhanvienloyee record successfully written.");
-		}
-	}
-	fclose(data);
-	printf("\n\n\tpress 1 to continue and 0 to exit");
-	printf("\n\n\tinput:\t");
-	int exit_status;
-	scanf("%d", &exit_status);
-	if (exit_status != 1)
-	{
-		printf("\n\n\tthank you for using this application.\n");
+		printf("\n\tLoi phat sinh. Khong the mo file.");
 		exit(0);
 	}
+	else
+	{
+		printf("\n\tDa luu nhan vien.");
+	}
+	fclose(data);
 }
 
 int count_nhan_vien(char check[100])
@@ -215,8 +201,8 @@ int count_nhan_vien(char check[100])
 		if (strcmp(nv.phongbanname,check) == 0)
 		{
 			i++;
-			printf("\n\n\tnhanvienloyee id:\t%s", nv.nhanvien_id);
-			printf("\n\tnhanvienloyee name:\t%s", nv.name);
+			printf("\n\n\tnhan vien id:\t%s", nv.nhanvien_id);
+			printf("\n\tten nhan vien:\t%s", nv.name);
 			printf("\n\tphong ban name:\t%s", nv.phongbanname);
 		}
 	}
@@ -234,12 +220,12 @@ void nhanvien_delete()
 	tnhanvien = fopen("temp_data.txt", "w");
 	if (data == NULL)
 	{
-		printf("\n\terror in opening file");
+		printf("\n\tLoi phat sinh. Khong the mo file");
 		exit(0);
 	}
 	else
 	{
-		printf("\n\tenter nhanvienloyee id to delete it's record:\t");
+		printf("\n\tNhap ma id nhan vien:\t");
 		scanf("%s", del_nhanvien_id);
 		while ((fread(&nv, sizeof(nv), size, data) == size))
 		{
@@ -255,15 +241,6 @@ void nhanvien_delete()
 		fwrite(&nv, sizeof(nv), 1, data);
 	fclose(data);
 	fclose(tnhanvien);
-	printf("\n\n\tpress 1 to continue and 0 to exit");
-	printf("\n\n\tinput:\t");
-	int exit_status;
-	scanf("%d", &exit_status);
-	if (exit_status != 1)
-	{
-		printf("\n\n\tthank you for using this application.\n");
-		exit(0);
-	}
 }
 
 void nhanvien_modify()
@@ -271,14 +248,15 @@ void nhanvien_modify()
 	int avl;
 	FILE* fpt;
 	FILE* fpo;
+	char nhanvien_gender[100];
 	char s[100], r[100];
 	int ch;
-	printf("enter roll number to update:");
+	printf("\t\n Nhap ma nhan vien can cap nhat:");
 	scanf("%s", r);
 	avl = nhanvien_phongbanty(r);
 	if (avl == 0)
 	{
-		printf("roll number %s is not available in the file", r);
+		printf("id %s khong tim thay trong file", r);
 	}
 	else
 	{
@@ -291,16 +269,47 @@ void nhanvien_modify()
 				fwrite(&nv, sizeof(nv), size, fpt);
 			else
 			{
-				printf("\n\t1. update name of roll number %s", r);
-				printf("\n\t2. update mark of roll number %s", r);
-				printf("\n\t3. update both name and mark of roll number %s", r);
+				printf("\n\t1. Doi ten nhan vien %s", r);
+				printf("\n\t2. Doi Luong nhan vien %s", r);
+				printf("\n\t2. Doi gioi tinh %s", r);
+				printf("\n\t2. Doi ngay sinh nhan vien %s", r);
 				printf("\nenter your choice:");
 				scanf("%d", &ch);
 				switch (ch)
 				{
 				case 1:
-					printf("enter name:");
+					printf("Nhap ten :");
 					scanf("%s", &nv.name);
+					break;
+				case 2:
+					printf("Nhap luong:");
+					scanf("%s", &nv.luong);
+					break;
+				case 3:
+					printf("gioi tinh (M la nam, F la nu) :");
+					scanf("%s", &nhanvien_gender);
+					if (strcmp(nhanvien_gender, "M") == 0)
+					{
+						printf("chon nam");
+						strcpy(nv.gender, "Nam");
+					}
+					else if (strcmp(nhanvien_gender, "F") == 0) {
+						printf("chon nu");
+						strcpy(nv.gender, "Nu");
+					}
+					else
+					{
+						exit(0);
+					}
+					break;
+				case 4:
+					printf("Nhap ngay sinh cua nhan vien:");
+					printf("Nhap ngay:");
+					scanf("%s", &nv.day);
+					printf("Nhap thang:");
+					scanf("%s", &nv.month);
+					printf("Nhap nam:");
+					scanf("%s", &nv.year);
 					break;
 				default:
 					printf("invalid selection");
@@ -397,8 +406,8 @@ void count_nam_nu()
 		if (strcmp(nv.gender, check) == 0)
 		{
 			i++;
-			printf("\n\n\tnhanvienloyee id:\t%s", nv.nhanvien_id);
-			printf("\n\tnhanvienloyee name:\t%s", nv.name);
+			printf("\n\n\tMa nhan vien:\t%s", nv.nhanvien_id);
+			printf("\n\tnTen nhan vien:\t%s", nv.name);
 			printf("\n\tphong ban name:\t%s", nv.phongbanname);
 		}
 	}
