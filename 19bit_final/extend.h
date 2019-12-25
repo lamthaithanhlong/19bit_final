@@ -9,6 +9,6 @@
 void clrscr();
 void head_disp();
 void footer_disp();
-
+void finalize();
 #endif // !__extend__H_
 

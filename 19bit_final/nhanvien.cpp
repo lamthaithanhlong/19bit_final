@@ -69,7 +69,6 @@ int nhanvien_phongbanty(char rno[100])
 void nhanvien_displayAll()
 {
 	FILE* data;
-	int n;
 	char filename[] = "NhanVien.txt";
 	data = fopen(filename, "r");
 	int totalnhanvienloyee = 0;

@@ -24,6 +24,26 @@ int phongbanty(char rno[100])
 	return 0;
 }
 
+void phongban_displayAll()
+{
+	FILE* data;
+	char filename[] = "PhongBan.txt";
+	data = fopen(filename, "r");
+	int totalphongbanloyee = 0;
+	int i = 0;
+	printf("\n\n\t**********************Thong Tin PHong Ban*********************\n\n");
+	while ((fread(&pb, sizeof(pb), size, data) == size))
+	{
+		i++;
+		printf("\n\t");
+		printf("\n\n\tPhong Ban id:\t%s", pb.phongban_id);
+		printf("\n\tTen Phong Ban:\t%s", pb.name);
+	}
+	totalphongbanloyee += i;
+	printf("\n\n\tTong so phong ban: %d\n\n", totalphongbanloyee);
+	fclose(data);
+}
+
 void inputvalue(char *id)
 {
 	FILE* data;
@@ -81,25 +101,6 @@ void phongban_append()
 	{
 		printf("\n\tDa luu thanh cong phong ban.");
 	}
-	fclose(data);
-}
-
-void phongban_displayAll()
-{
-	FILE* data;
-	char filename[] = "PhongBan.txt";
-	data = fopen(filename, "r");
-	int totalphongbanloyee = 0;
-	int i = 0;
-	printf("\n\n\t**********************Thong Tin PHong Ban*********************\n\n");
-	while ((fread(&pb, sizeof(pb), size, data) == size))
-	{
-		i++;
-		printf("\n\n\tPhong Ban id:\t%s", pb.phongban_id);
-		printf("\n\tTen Phong Ban:\t%s", pb.name);
-	}
-	totalphongbanloyee += i;
-	printf("\n\n\tTong so phong ban: %d\n\n", totalphongbanloyee);
 	fclose(data);
 }
 

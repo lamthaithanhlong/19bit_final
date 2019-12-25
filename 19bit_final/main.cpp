@@ -9,7 +9,7 @@ int main()
 	char create;
 	head_disp();
 	data1 = fopen("NhanVien.txt", "r+");
-	data = fopen("PhongBan", "r+");
+	data = fopen("PhongBan.txt", "r+");
 	if (data == NULL)
 	{
 		printf("\n\t Phong Ban Database khong tim thay!\n Nhan N de tao moi.");
@@ -17,7 +17,7 @@ int main()
 		create = _getche();
 		if (tolower(create) == 'n')
 		{
-			data = fopen("PhongBan", "w+");
+			data = fopen("PhongBan.txt", "w+");
 			printf("\n\tDatabase phong ban da duoc tao o thu muc.\n");
 			printf("\n\tVui long khoi dong lai chuong trinh\nNhan Enter de tiep tuc.\n");
 			char x;
