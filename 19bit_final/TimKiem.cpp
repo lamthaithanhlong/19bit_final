@@ -8,7 +8,7 @@
 void nhanvien_search()
 {
 	FILE* data;
-	char filename[] = "employeeRecord1.txt";
+	char filename[] = "NhanVien.txt";
 	data = fopen(filename, "r");
 	int found = 0, search_choice;
 	char search_nhanvien_id[100];
@@ -62,7 +62,7 @@ void nhanvien_search()
 //void nhanvien_search()
 //{
 //	FILE* data;
-//	char filename[] = "employeeRecord1.txt";
+//	char filename[] = "NhanVien.txt";
 //	data = fopen(filename, "r");
 //	int found = 0, search_choice;
 //	char search_nhanvien_id[100];

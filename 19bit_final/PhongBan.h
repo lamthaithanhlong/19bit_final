@@ -12,7 +12,7 @@
 static struct phongban_data
 {
 	char name[100];
-	char emp_id[100];
+	char phongban_id[100];
 }pb;
 
 struct list {
@@ -20,14 +20,14 @@ struct list {
 	int n;
 };
 
-void ThemPhongBan();
+void ThphongbanhongBan();
 void XuatPhongBan();
 
-void emp_append();
-void emp_displayAll();
-void emp_delete();
-void emp_modify();
-void emp_search();
+void phongban_append();
+void phongban_displayAll();
+void phongban_delete();
+void phongban_modify();
+void phongban_search();
 void count_nu_nhanvien();
 
 #endif // !__PhongBan_H_

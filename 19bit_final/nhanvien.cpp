@@ -47,11 +47,11 @@ void xuatngay(Date d) {
 	printf("nam %d", d.year);
 }
 
-int nhanvien_avlrollno(char rno[100])
+int nhanvien_phongbanty(char rno[100])
 {
 	FILE* fp;
 	int c = 0;
-	fp = fopen("employeeRecord1.txt", "r");
+	fp = fopen("NhanVien.txt", "r");
 	while (!feof(fp))
 	{
 		fread(&nv, sizeof(nv), 1, fp);
@@ -70,7 +70,7 @@ void nhanvien_displayAll()
 {
 	FILE* data;
 	int n;
-	char filename[] = "employeeRecord1.txt";
+	char filename[] = "NhanVien.txt";
 	data = fopen(filename, "r");
 	int totalnhanvienloyee = 0;
 	int i = 0;
@@ -96,13 +96,13 @@ void nhanvien_displayAll()
 
 void nhanvien_inputvalue(char* id)
 {
-	FILE* data,*temp;
+	FILE* data,*tphongban;
 	int i = 0;
 	char n[100], check[100], nhanvien_gender[100];
-	char filename1[] = "employeeRecord.txt";
-	char filename[] = "employeeRecord1.txt";
+	char filename1[] = "PhongBan.txt";
+	char filename[] = "NhanVien.txt";
 	data = fopen(filename, "r");
-	temp = fopen(filename1, "r");
+	tphongban = fopen(filename1, "r");
 	printf("\n");
 	nhanvien_displayAll();
 	printf("\n \tnhap ma id nhan vien:\t");
@@ -115,20 +115,20 @@ void nhanvien_inputvalue(char* id)
 		}
 	}
 	strcpy(nv.nhanvien_id, id);
-	printf("\n \tnhap ho en nhan vien:\t");
+	printf("\n \tnhap ho ten nhan vien:\t");
 	rewind(stdin);
 	gets_s(nv.name);
-	emp_displayAll();
+	phongban_displayAll();
 	printf("\n");
 	printf("nhap vao ma phong ban nhan vien can vao: ");
 	scanf("%s", check);
-	while (fread(&pb, sizeof(pb), size, temp) == size)
+	while (fread(&pb, sizeof(pb), size, tphongban) == size)
 	{
 		if (strcmp(pb.name, check) == 0)
 		{
 			i = 1;
 			printf("\n\t******************nhanvienloyee record is......");
-			printf("\n\n\tnhanvienloyee id:\t%s", pb.emp_id);
+			printf("\n\n\tnhanvienloyee id:\t%s", pb.phongban_id);
 			printf("\n\tnhanvienloyee name:\t%s", pb.name);
 			strcpy(nv.phongbanname, check);
 		}
@@ -167,7 +167,7 @@ void nhanvien_inputvalue(char* id)
 		scanf("%d", &nv.year);
 	}
 	fclose(data);
-	fclose(temp);
+	fclose(tphongban);
 }
 
 void nhanvien_append()
@@ -175,7 +175,7 @@ void nhanvien_append()
 	FILE* data;
 	nhanvien_list l;
 	char id[100];
-	char filename[] = "employeeRecord1.txt";
+	char filename[] = "NhanVien.txt";
 	data = fopen(filename, "a");
 	printf("input number of input: ");
 	scanf("%d", &l.n);
@@ -208,7 +208,7 @@ int count_nhan_vien(char check[100])
 {
 	FILE* data;
 	int i=0;
-	char filename[] = "employeeRecord1.txt";
+	char filename[] = "NhanVien.txt";
 	data = fopen(filename, "r");
 	while ((fread(&nv, sizeof(nv), size, data) == size))
 	{
@@ -230,8 +230,8 @@ void nhanvien_delete()
 	int found = 0;
 	char del_nhanvien_id[100];
 	FILE* data, * tnhanvien;
-	data = fopen("employeeRecord1.txt", "r");
-	tnhanvien = fopen("tnhanvien_data.txt", "w");
+	data = fopen("NhanVien.txt", "r");
+	tnhanvien = fopen("temp_data.txt", "w");
 	if (data == NULL)
 	{
 		printf("\n\terror in opening file");
@@ -249,8 +249,8 @@ void nhanvien_delete()
 		fclose(data);
 		fclose(tnhanvien);
 	}
-	data = fopen("employeeRecord1.txt", "w");
-	tnhanvien = fopen("tnhanvien_data.txt", "r");
+	data = fopen("NhanVien.txt", "w");
+	tnhanvien = fopen("temp_data.txt", "r");
 	while (fread(&nv, sizeof(nv), 1, tnhanvien))
 		fwrite(&nv, sizeof(nv), 1, data);
 	fclose(data);
@@ -275,15 +275,15 @@ void nhanvien_modify()
 	int ch;
 	printf("enter roll number to update:");
 	scanf("%s", r);
-	avl = nhanvien_avlrollno(r);
+	avl = nhanvien_phongbanty(r);
 	if (avl == 0)
 	{
 		printf("roll number %s is not available in the file", r);
 	}
 	else
 	{
-		fpo = fopen("employeeRecord1.txt", "r");
-		fpt = fopen("tnhanvien_data.txt", "w");
+		fpo = fopen("NhanVien.txt", "r");
+		fpt = fopen("temp_data.txt", "w");
 		while (fread(&nv, sizeof(nv), size, fpo) == size)
 		{
 			strcpy(s, nv.nhanvien_id);
@@ -311,8 +311,8 @@ void nhanvien_modify()
 		}
 		fclose(fpo);
 		fclose(fpt);
-		fpo = fopen("employeeRecord1.txt", "w");
-		fpt = fopen("tnhanvien_data.txt", "r");
+		fpo = fopen("NhanVien.txt", "w");
+		fpt = fopen("temp_data.txt", "r");
 		while (fread(&nv, sizeof(nv), 1, fpt))
 		{
 			fwrite(&nv, sizeof(nv), 1, fpo);
@@ -336,7 +336,7 @@ void PhongTraLuongItNhat()
 {
 	int a[20], count = 0, i, j, t, c;
 	FILE* fpo;
-	fpo = fopen("employeeRecord1.txt", "r");
+	fpo = fopen("NhanVien.txt", "r");
 	while (fread(&nv, sizeof(nv), 1, fpo))
 	{
 		a[count] = nv.luong;
@@ -375,7 +375,7 @@ void count_nam_nu()
 	FILE* data;
 	int i = 0;
 	char check[100];
-	char filename[] = "employeeRecord1.txt";
+	char filename[] = "NhanVien.txt";
 	data = fopen(filename, "r");
 	printf("Nhap vao gioi tinh (M la Nam , F la Nu): ");
 	scanf("%s", check);
@@ -412,7 +412,7 @@ int count_nu()
 	int i = 0;
 	char check[100];
 	char check_nu[] = "*";
-	char filename[] = "employeeRecord1.txt";
+	char filename[] = "NhanVien.txt";
 	data = fopen(filename, "r");
 	while ((fread(&nv, sizeof(nv), size, data) == size))
 	{
@@ -432,7 +432,7 @@ int count_nu_phong_ban(char check_nu[100])
 	FILE* data;
 	int i = 0;
 	char check[100];
-	char filename[] = "employeeRecord1.txt";
+	char filename[] = "NhanVien.txt";
 	data = fopen(filename, "r");
 	while ((fread(&nv, sizeof(nv), size, data) == size))
 	{
@@ -450,7 +450,7 @@ void PhongCoNhieuNuNhat()
 {
 	int a[20], count = 0, i, j, t, c;
 	FILE* fpo;
-	fpo = fopen("employeeRecord1.txt", "r");
+	fpo = fopen("NhanVien.txt", "r");
 	while (fread(&nv, sizeof(nv), 1, fpo))
 	{
 		a[count] = count_nu();

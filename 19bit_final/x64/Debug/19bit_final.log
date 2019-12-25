@@ -1,16 +1,13 @@
-﻿  PhongBan.cpp
-C:\Users\ACER\source\repos\19bit_final\19bit_final\PhongBan.cpp(61,14): warning C4553: '==': result of expression not used; did you intend '='?
-C:\Users\ACER\source\repos\19bit_final\19bit_final\PhongBan.cpp(146,9): warning C4477: 'scanf' : format string '%d' requires an argument of type 'int *', but variadic argument 1 has type 'char (*)[100]'
-C:\Users\ACER\source\repos\19bit_final\19bit_final\PhongBan.cpp(146,9): message : consider using '%hhd' in the format string
-C:\Users\ACER\source\repos\19bit_final\19bit_final\PhongBan.cpp(185,10): warning C4101: 'rname': unreferenced local variable
-  nhanvien.cpp
-C:\Users\ACER\source\repos\19bit_final\19bit_final\PhongBan.cpp(185,6): warning C4101: 'ret': unreferenced local variable
+﻿  nhanvien.cpp
 C:\Users\ACER\source\repos\19bit_final\19bit_final\nhanvien.cpp(72,6): warning C4101: 'n': unreferenced local variable
 C:\Users\ACER\source\repos\19bit_final\19bit_final\nhanvien.cpp(101,7): warning C4101: 'n': unreferenced local variable
 C:\Users\ACER\source\repos\19bit_final\19bit_final\nhanvien.cpp(229,11): warning C4101: 'rname': unreferenced local variable
 C:\Users\ACER\source\repos\19bit_final\19bit_final\nhanvien.cpp(229,6): warning C4101: 'ret': unreferenced local variable
 C:\Users\ACER\source\repos\19bit_final\19bit_final\nhanvien.cpp(413,7): warning C4101: 'check': unreferenced local variable
 C:\Users\ACER\source\repos\19bit_final\19bit_final\nhanvien.cpp(434,7): warning C4101: 'check': unreferenced local variable
+  PhongBanMenu.cpp
+  TimKiem.cpp
   Generating Code...
 C:\Users\ACER\source\repos\19bit_final\19bit_final\nhanvien.cpp(479,27): warning C4390: ';': empty controlled statement found; is this the intent?
+  LINK : C:\Users\ACER\source\repos\19bit_final\x64\Debug\19bit_final.exe not found or not built by the last incremental link; performing full link
   19bit_final.vcxproj -> C:\Users\ACER\source\repos\19bit_final\x64\Debug\19bit_final.exe

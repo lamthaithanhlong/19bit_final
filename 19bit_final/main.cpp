@@ -8,47 +8,47 @@ int main()
 	FILE* data,* data1;
 	char create;
 	head_disp();
-	data1 = fopen("employeeRecord1.txt", "r+");
-	data = fopen("employeeRecord.txt", "r+");
+	data1 = fopen("NhanVien.txt", "r+");
+	data = fopen("PhongBan", "r+");
 	if (data == NULL)
 	{
-		printf("\n\t Employee Database Not Found!\n Press N key to create new Database.");
-		printf("\n\tTo EXIT, press Enter key\n");
+		printf("\n\t Phong Ban Database khong tim thay!\n Nhan N de tao moi.");
+		printf("\n\tDe Thoat, Nhan Enter\n");
 		create = _getche();
 		if (tolower(create) == 'n')
 		{
-			data = fopen("employeeRecord.txt", "w+");
-			printf("\n\tEmployee Record Database has been created in the current directory.\n");
-			printf("\n\tYou must Restart the Application\nPress Enter key to continue.\n");
+			data = fopen("PhongBan", "w+");
+			printf("\n\tDatabase phong ban da duoc tao o thu muc.\n");
+			printf("\n\tVui long khoi dong lai chuong trinh\nNhan Enter de tiep tuc.\n");
 			char x;
 			x = _getch();
 			exit(0);
 		}
 		else
 		{
-			printf("\n\n\tThank You for using this Application.\n");
-			printf("\n\n\tApplication will EXIT Now.");
+			printf("\n\n\tCam on da su dung chuong trinh.\n");
+			printf("\n\n\tChuong trinh se thoat.");
 			exit(0);
 		}
 	}
 	if (data1 == NULL)
 	{
-		printf("\n\t Department Database Not Found!\n Press N key to create new Database.");
-		printf("\n\tTo EXIT, press Enter key\n");
+		printf("\n\t Phong Ban Database khong tim thay!\n Nhan N de tao moi.");
+		printf("\n\tDe Thoat, Nhan Enter\n");
 		create = _getche();
 		if (tolower(create) == 'n')
 		{
-			data1 = fopen("employeeRecord1.txt", "w+");
-			printf("\n\tEmployee Record Database has been created in the current directory.\n");
-			printf("\n\tYou must Restart the Application\nPress Enter key to continue.\n");
+			data1 = fopen("NhanVien.txt", "w+");
+			printf("\n\tDatabase phong ban da duoc tao o thu muc.\n");
+			printf("\n\tVui long khoi dong lai chuong trinh\nNhan Enter de tiep tuc.\n");
 			char x;
 			x = _getch();
 			exit(0);
 		}
 		else
 		{
-			printf("\n\n\tThank You for using this Application.\n");
-			printf("\n\n\tApplication will EXIT Now.");
+			printf("\n\n\tCam on da su dung chuong trinh.\n");
+			printf("\n\n\tChuong trinh se thoat.");
 			exit(0);
 		}
 	}

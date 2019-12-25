@@ -23,13 +23,13 @@ void PhongBanMenu()
 	scanf("%d", &n);
 	switch (n)
 	{
-	case 1: emp_append();
+	case 1: phongban_append();
 		break;
-	case 2: clrscr(), emp_modify();
+	case 2: clrscr(), phongban_modify();
 		break;
-	case 3:emp_delete();
+	case 3:phongban_delete();
 		break;
-	case 4: emp_displayAll();
+	case 4: phongban_displayAll();
 		break;
 	case 5: clrscr(), head_disp(), MainMenu();
 		break;
